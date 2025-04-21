@@ -46,26 +46,36 @@
     </div>
     <div class="row my-4">
       <div class="col">
-        <section id="paper-description">
-          <p>The 2021 paper "Highly accurate protein structure prediction with AlphaFold" by Jumper et al. published in
-            Nature represents a monumental breakthrough in computational biology. For over 50 years, scientists have
-            struggled with the "protein folding problem" - predicting how a chain of amino acids folds into a functional
-            3D structure based solely on its sequence. This challenge has been one of biology's grand unsolved problems
-            due to the astronomical number of possible configurations a protein could theoretically adopt.</p>
+        <section id="introduction">
+          <h2>Introduction</h2>
+
+          <p>What if we could determine a protein's three-dimensional structure in minutes rather than months of
+            painstaking laboratory work? This question has captivated scientists for decades, as protein structures are
+            key to understanding biological functions and developing life-saving therapeutics. The 2021 paper "Highly
+            accurate protein structure prediction with AlphaFold" by Jumper et al. published in Nature represents a
+            monumental breakthrough in computational biology that finally makes this possible.</p>
+
+          <p>For over 50 years, scientists have struggled with the "protein folding problem" - predicting how a chain of
+            amino acids folds into a functional 3D structure based solely on its sequence. This challenge has been one
+            of biology's grand unsolved problems due to the astronomical number of possible configurations a protein
+            could theoretically adopt. Traditional experimental methods like X-ray crystallography, NMR spectroscopy,
+            and cryo-electron microscopy, while powerful, are time-consuming, expensive, and not always successful for
+            all proteins.</p>
 
           <p>AlphaFold2, developed by DeepMind, revolutionized this field by using deep learning to predict protein
-            structures with near-experimental accuracy. The paper details a neural network architecture that combines
-            attention mechanisms (similar to those used in language models) with representations of evolutionarily
-            related protein sequences to deduce the most likely 3D structure. What makes this work remarkable is not
-            just the accuracy achieved (median GDT scores >90 in CASP14), but how it effectively solved a decades-old
-            scientific challenge that many thought would take many more years to crack.</p>
+            structures with near-experimental accuracy. The system combines attention mechanisms (similar to those used
+            in language models) with representations of evolutionarily related protein sequences to deduce the most
+            likely 3D structure. What makes this achievement remarkable is not just the accuracy (median GDT scores >90
+            in CASP14), but how it effectively solved a decades-old scientific challenge that many thought would take
+            many more years to crack.</p>
 
-          <p>Our team was particularly interested in replicating the AlphaFold2 architecture to understand how this AI
-            system works and explore its potential applications. After researching implementation options, we discovered
-            ColabFold - an adaptation of AlphaFold2 designed to run efficiently on Google Colab. ColabFold provides
-            accessibility to this powerful technology without requiring specialized hardware. Using ColabFold, we were
-            able to successfully replicate protein structure predictions and gain hands-on experience with this
-            revolutionary technology that's transforming structural biology research worldwide.</p>
+          <p>Our team was inspired to delve deeper into this breakthrough to understand how AlphaFold2 works and explore
+            its potential applications in research and education. After investigating implementation options, we
+            discovered ColabFold - an adaptation of AlphaFold2 designed to run efficiently on Google Colab. This tool
+            provides accessibility to this powerful technology without requiring specialized hardware, democratizing
+            access to state-of-the-art protein structure prediction. Our project aims to demonstrate how ColabFold can
+            be used to successfully predict protein structures and provide hands-on experience with a technology that's
+            transforming structural biology worldwide.</p>
         </section>
       </div>
     </div>
@@ -380,7 +390,7 @@
             sequence input to final structure, took approximately 1-2 minutes on a T4 GPU, highlighting the efficiency
             of the ColabFold implementation.</p>
         </section>
-        
+
         <section id="code">
           <h2>Link to Code</h2>
           <p>Our implementation and demonstration can be found in our GitHub repository: <a
@@ -477,52 +487,26 @@
             <div class="card shadow h-100">
               <div class="text-center pt-4">
                 <div class="mx-auto" style="width: 150px; height: 150px; overflow: hidden; border-radius: 50%;">
-                  <img
-                    src="https://via.placeholder.com/150"
-                    class="img-fluid"
-                    alt="Rishi Mule"
-                    style="width: 100%; height: 100%; object-fit: cover; object-position: center;"
-                  />
+                  <img src="https://via.placeholder.com/150" class="img-fluid" alt="Rishi Mule"
+                    style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
                 </div>
               </div>
               <div class="card-body text-center">
                 <h5 class="card-title">Rishi Mule</h5>
                 <p class="card-text">Team Member</p>
                 <div class="social-links mt-3">
-                  <a
-                    href="mailto:mule.ri@northeastern.edu"
-                    class="mx-2"
-                    title="Email"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-envelope"
-                      viewBox="0 0 16 16"
-                    >
+                  <a href="mailto:mule.ri@northeastern.edu" class="mx-2" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-envelope" viewBox="0 0 16 16">
                       <path
-                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                      />
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                     </svg>
                   </a>
-                  <a
-                    href="https://www.linkedin.com/in/rishimule/"
-                    class="mx-2"
-                    title="LinkedIn"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-linkedin"
-                      viewBox="0 0 16 16"
-                    >
+                  <a href="https://www.linkedin.com/in/rishimule/" class="mx-2" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-linkedin" viewBox="0 0 16 16">
                       <path
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                      />
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
                     </svg>
                   </a>
                 </div>
@@ -534,52 +518,26 @@
             <div class="card shadow h-100">
               <div class="text-center pt-4">
                 <div class="mx-auto" style="width: 150px; height: 150px; overflow: hidden; border-radius: 50%;">
-                  <img
-                    src="assets/photo_dhanshree.jpg"
-                    class="img-fluid"
-                    alt="Dhanshree Baravkar"
-                    style="width: 100%; height: 100%; object-fit: cover; object-position: center;"
-                  />
+                  <img src="assets/photo_dhanshree.jpg" class="img-fluid" alt="Dhanshree Baravkar"
+                    style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
                 </div>
               </div>
               <div class="card-body text-center">
                 <h5 class="card-title">Dhanshree Baravkar</h5>
                 <p class="card-text">Team Member</p>
                 <div class="social-links mt-3">
-                  <a
-                    href="mailto:baravkardhanshree@gmail.com"
-                    class="mx-2"
-                    title="Email"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-envelope"
-                      viewBox="0 0 16 16"
-                    >
+                  <a href="mailto:baravkardhanshree@gmail.com" class="mx-2" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-envelope" viewBox="0 0 16 16">
                       <path
-                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                      />
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                     </svg>
                   </a>
-                  <a
-                    href="https://www.linkedin.com/in/dhanshree-baravkar/"
-                    class="mx-2"
-                    title="LinkedIn"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-linkedin"
-                      viewBox="0 0 16 16"
-                    >
+                  <a href="https://www.linkedin.com/in/dhanshree-baravkar/" class="mx-2" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-linkedin" viewBox="0 0 16 16">
                       <path
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                      />
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
                     </svg>
                   </a>
                 </div>
