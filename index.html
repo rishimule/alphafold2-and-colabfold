@@ -166,7 +166,7 @@
     
     <div class="image-container">
       <figure>
-        <img src="assets/Alphafold_architecture.png" alt="Overall architecture of AlphaFold2 showing the pipeline from input sequence to 3D structure">
+        <img src="assets/images/Alphafold_architecture.png" alt="Overall architecture of AlphaFold2 showing the pipeline from input sequence to 3D structure">
         <figcaption>Figure: Overall architecture of AlphaFold2 showing the complete pipeline from amino acid sequence to 3D structure prediction.</figcaption>
       </figure>
     </div>
@@ -209,7 +209,7 @@
     
     <div class="image-container">
       <figure>
-        <img src="assets/evoformer.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
+        <img src="assets/images/evoformer.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
         <figcaption>Figure 3: Detailed structure of the Evoformer module showing the various attention mechanisms and information flow.</figcaption>
       </figure>
     </div>
@@ -226,7 +226,7 @@
     </ul>
     <div class="image-container">
       <figure>
-        <img src="assets/structure_module.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
+        <img src="assets/images/structure_module.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
         <figcaption>Figure: Detailed structure of the Structure module showing the various attention mechanisms and information flow.</figcaption>
       </figure>
     </div>
@@ -269,11 +269,48 @@
     <p>We conducted structure prediction experiments on lysozyme (129 amino acids), a well-characterized enzyme found in egg whites and human tears. Our implementation:</p>
     <ol>
       <li>Generated deep multiple sequence alignments (>2500 sequences)</li>
-      <li>Identified suitable templates (1ior, 1ioq, 1iot, 1kxw)</li>
+      <div class="image-container">
+        <figure>
+          <img src="assets/images/MSA_coverage.png" alt="Graph showing MSA for lysozyme.">
+          <figcaption>Figure: Graph showing MSA coverage.</figcaption>
+        </figure>
+      </div>
+
+      <div class="image-container">
+        <figure>
+          <img src="assets/images/MSA.png" alt="Top 5 MSA received for lysozyme input.">
+          <figcaption>Figure: Top 5 MSA received for lysozyme input.</figcaption>
+        </figure>
+      </div>
+
+      <li>Identified suitable templates (1ior, 1ioq, 1iot, 1kxw)</li><div class="image-container">
+        <figure>
+          <img src="assets/images/templates.png" alt="Suitable templates for lysozyme.">
+          <figcaption>Figure: Suitable templates for lysozyme.</figcaption>
+        </figure>
+      </div>
       <li>Ran predictions with 5 recycles across multiple AlphaFold models</li>
+      <div class="image-container">
+        <figure>
+          <img src="assets/images/recycles.png" alt="2 recycles due to early stopping.">
+          <figcaption>Figure: 2 recycles due to early stopping.</figcaption>
+        </figure>
+      </div>
       <li>Achieved exceptional prediction quality with pLDDT scores averaging 0.984 and ptm scores of 0.913</li>
+      <div class="image-container">
+        <figure>
+          <img src="assets/images/lysozyme_predicted_structure.png" alt="Prediction for lysozyme with confidence coloring.">
+          <figcaption>Figure: Prediction for lysozyme with confidence coloring.</figcaption>
+        </figure>
+      </div>
       <li>Visualized predictions using both rainbow coloring (by residue position) and confidence coloring</li>
       <li>Compared our predicted structure with the experimental structure (1LYZ)</li>
+      <div class="image-container">
+        <figure>
+          <img src="assets/images/prediction_comparison.png" alt="Predicted vs Experimental Structure of lysozyme.">
+          <figcaption>Figure: Predicted vs Experimental Structure of lysozyme.</figcaption>
+        </figure>
+      </div>
     </ol>
     
     <div class="image-container">
