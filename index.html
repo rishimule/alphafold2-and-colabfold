@@ -40,6 +40,56 @@
   <section id="related-work">
     <h2>Related Work</h2>
     <p>AlphaFold2 builds upon decades of protein structure prediction research, dramatically improving upon previous methods. The seminal paper by Jumper et al. (2021) titled "Highly accurate protein structure prediction with AlphaFold" published in Nature revolutionized the field by achieving unprecedented accuracy in CASP14 <cite><a href="#ref1">[1]</a></cite>. Our work directly builds on ColabFold by Mirdita et al. (2022), which made AlphaFold more accessible through Google Colab implementation <cite><a href="#ref2">[2]</a></cite>. Unlike previous approaches that relied on fragment assembly and physics-based refinement, AlphaFold2 uses attention-based deep learning to directly predict 3D coordinates. Our implementation explores practical applications of these methods for educational purposes.</p>
+    
+    <h3>Why Is Protein Structure Important?</h3>
+    <p>Proteins are the molecular machines that carry out most cellular functions, from catalyzing biochemical reactions to providing structural support. Their function is intimately tied to their three-dimensional structure - the precise spatial arrangement of atoms that determines how a protein interacts with other molecules. Understanding protein structures is crucial for:</p>
+    <ul>
+      <li>Understanding disease mechanisms at the molecular level</li>
+      <li>Rational drug design and development of therapeutics</li>
+      <li>Engineering proteins with novel functions for biotechnology</li>
+      <li>Deciphering biological processes and cellular machinery</li>
+    </ul>
+    <p>The classic paradigm "sequence determines structure determines function" highlights why predicting structure from amino acid sequence has been a grand challenge in molecular biology for over 50 years.</p>
+    
+    <h3>What are the Experimental Methods of Getting Protein Structure?</h3>
+    <p>Traditional experimental methods for determining protein structures include:</p>
+    <ul>
+      <li><strong>X-ray Crystallography:</strong> The gold standard for high-resolution structures (often &lt;1.5Å resolution), but requires protein crystallization which can be difficult for many proteins</li>
+      <li><strong>Nuclear Magnetic Resonance (NMR) Spectroscopy:</strong> Works with proteins in solution but typically limited to smaller proteins (&lt;50kDa)</li>
+      <li><strong>Cryo-electron Microscopy (cryo-EM):</strong> Recent advances allow near-atomic resolution, especially valuable for large complexes</li>
+      <li><strong>Small-angle X-ray Scattering (SAXS):</strong> Provides low-resolution shape information</li>
+    </ul>
+    <p>These methods are time-consuming (often taking months to years), expensive, and technically challenging, creating bottlenecks in structural biology research. This gap between known protein sequences (~200 million) and experimentally determined structures (~180,000) motivated computational prediction approaches.</p>
+    
+    <h3>What is CASP (Critical Assessment of Structure Prediction)?</h3>
+    <p>CASP (Critical Assessment of Structure Prediction) is a biennial community-wide experiment established in 1994 to objectively evaluate the state of the art in protein structure prediction. Key aspects include:</p>
+    <ul>
+      <li>Blind prediction format: participants predict structures of proteins whose experimental structures are determined but not yet published</li>
+      <li>Standard metrics: primarily GDT_TS (Global Distance Test) and RMSD (Root Mean Square Deviation) to quantify prediction accuracy</li>
+      <li>Diverse targets: ranging from easy comparative modeling cases to difficult free modeling scenarios</li>
+      <li>Independent assessment: ensures unbiased evaluation of different methods</li>
+    </ul>
+    <p>CASP has been the gold standard benchmark for progress in the protein structure prediction field for nearly three decades, chronicling incremental advances until AlphaFold2's breakthrough.</p>
+    
+    <h3>How Did AlphaFold2 Revolutionize Prediction?</h3>
+    <p>AlphaFold2 represented a paradigm shift in protein structure prediction through several key innovations:</p>
+    <ul>
+      <li><strong>End-to-end differentiable architecture:</strong> Unlike previous approaches that combined disparate methods, AlphaFold2 integrated all components into a single neural network</li>
+      <li><strong>Attention mechanisms:</strong> Leveraged transformer architectures to capture long-range dependencies and evolutionary patterns between residues</li>
+      <li><strong>Structure module:</strong> Directly predicted 3D coordinates through iterative refinement rather than assembling fragments</li>
+      <li><strong>Evolutionary information:</strong> Effectively leveraged multiple sequence alignments to extract co-evolutionary signals</li>
+      <li><strong>Self-confidence scoring:</strong> Developed pLDDT metric to assess prediction quality without ground truth</li>
+    </ul>
+    <p>The result was a system that achieved unprecedented accuracy in CASP14 (2020), with a median GDT_TS of 92.4 for all targets and even achieving competitive results for the most difficult free modeling cases. This performance approaches experimental accuracy, effectively solving a 50-year-old grand challenge in biology.</p>
+    
+    <h3>Team at AlphaFold</h3>
+    <p>The AlphaFold breakthrough came from DeepMind, a London-based AI company (acquired by Google in 2014). The interdisciplinary team combined expertise from machine learning, structural biology, physics, and bioinformatics:</p>
+    <ul>
+      <li><strong>John Jumper:</strong> Lead researcher and first author of the AlphaFold2 paper</li>
+      <li><strong>Demis Hassabis:</strong> CEO and co-founder of DeepMind, with backgrounds in neuroscience and AI</li>
+      <li><strong>Key team members:</strong> Richard Evans, Alexander Pritzel, Tim Green, Michael Figurnov, Olaf Ronneberger, Kathryn Tunyasuvunakool, Russ Bates, and many others</li>
+    </ul>
+    <p>The team collaborated with structural biologists and validated their approach through rigorous testing before the CASP14 competition. The project demonstrates the power of interdisciplinary research combining deep learning expertise with domain knowledge in biology to solve complex scientific problems.</p>
   </section>
   
   <section id="methods">
