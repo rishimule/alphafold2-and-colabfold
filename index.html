@@ -71,146 +71,161 @@
     </div>
     <div class="row">
       <div class="col">
-        <div class="image-container text-center">
-          <figure class="mx-auto" style="width: 60%;">
-            <img src="assets/images/protein_struct.png"
-              alt="Protein folding process: from amino acid sequence to 3D protein structure" class="img-fluid shadow"
-              style="border-radius: 8px;">
-            <figcaption>Figure: The protein folding problem - how a linear chain of amino acids folds into a functional
-              3D structure.</figcaption>
-          </figure>
-        </div>
+        <section id="related-work">
+          <h3>Why Is Protein Structure Important?</h3>
+          <p>Proteins are the molecular machines that carry out most cellular functions, from catalyzing biochemical
+            reactions to providing structural support. Their function is intimately tied to their three-dimensional
+            structure - the precise spatial arrangement of atoms that determines how a protein interacts with other
+            molecules. Understanding protein structures is crucial for:</p>
+          <ul>
+            <li>Understanding disease mechanisms at the molecular level</li>
+            <li>Rational drug design and development of therapeutics</li>
+            <li>Engineering proteins with novel functions for biotechnology</li>
+            <li>Deciphering biological processes and cellular machinery</li>
+          </ul>
 
-        <p>The classic paradigm "sequence determines structure determines function" highlights why predicting structure
-          from amino acid sequence has been a grand challenge in molecular biology for over 50 years.</p>
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 60%;">
+              <img src="assets/images/protein_struct.png"
+                alt="Protein folding process: from amino acid sequence to 3D protein structure" class="img-fluid shadow"
+                style="border-radius: 8px;">
+              <figcaption>Figure: The protein folding problem - how a linear chain of amino acids folds into a
+                functional 3D structure.</figcaption>
+            </figure>
+          </div>
 
-        <h3>What are the Experimental Methods of Getting Protein Structure?</h3>
-        <p>Traditional experimental methods for determining protein structures include:</p>
-        <ul>
-          <li><strong>X-ray Crystallography:</strong> The gold standard for high-resolution structures (often &lt;1.5Å
-            resolution), but requires protein crystallization which can be difficult for many proteins</li>
-          <li><strong>Nuclear Magnetic Resonance (NMR) Spectroscopy:</strong> Works with proteins in solution but
-            typically limited to smaller proteins (&lt;50kDa)</li>
-          <li><strong>Cryo-electron Microscopy (cryo-EM):</strong> Recent advances allow near-atomic resolution,
-            especially valuable for large complexes</li>
-          <li><strong>Small-angle X-ray Scattering (SAXS):</strong> Provides low-resolution shape information</li>
-        </ul>
+          <p>The classic paradigm "sequence determines structure determines function" highlights why predicting
+            structure from amino acid sequence has been a grand challenge in molecular biology for over 50 years.</p>
 
-        <div class="image-container text-center">
-          <figure class="mx-auto" style="width: 50%;">
-            <img src="assets/images/experimental_methods.png"
-              alt="Experimental methods for protein structure determination: X-Ray crystallography, NMR, and Cryo-EM"
-              class="img-fluid shadow" style="border-radius: 8px;">
-            <figcaption>Figure: Major experimental techniques for protein structure determination: X-Ray
-              crystallography, Nuclear magnetic resonance spectroscopy, and Cryoelectron microscopy.</figcaption>
-          </figure>
-        </div>
+          <h3>What are the Experimental Methods of Getting Protein Structure?</h3>
+          <p>Traditional experimental methods for determining protein structures include:</p>
+          <ul>
+            <li><strong>X-ray Crystallography:</strong> The gold standard for high-resolution structures (often &lt;1.5Å
+              resolution), but requires protein crystallization which can be difficult for many proteins</li>
+            <li><strong>Nuclear Magnetic Resonance (NMR) Spectroscopy:</strong> Works with proteins in solution but
+              typically limited to smaller proteins (&lt;50kDa)</li>
+            <li><strong>Cryo-electron Microscopy (cryo-EM):</strong> Recent advances allow near-atomic resolution,
+              especially valuable for large complexes</li>
+            <li><strong>Small-angle X-ray Scattering (SAXS):</strong> Provides low-resolution shape information</li>
+          </ul>
 
-        <p>These methods are time-consuming (often taking months to years), expensive, and technically challenging,
-          creating bottlenecks in structural biology research. This gap between known protein sequences (~200 million)
-          and experimentally determined structures (~180,000) motivated computational prediction approaches.</p>
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 50%;">
+              <img src="assets/images/experimental_methods.png"
+                alt="Experimental methods for protein structure determination: X-Ray crystallography, NMR, and Cryo-EM"
+                class="img-fluid shadow" style="border-radius: 8px;">
+              <figcaption>Figure: Major experimental techniques for protein structure determination: X-Ray
+                crystallography, Nuclear magnetic resonance spectroscopy, and Cryoelectron microscopy.</figcaption>
+            </figure>
+          </div>
 
-        <h3>What is CASP (Critical Assessment of Structure Prediction)?</h3>
-        <p>CASP (Critical Assessment of Structure Prediction) is a biennial community-wide experiment established in
-          1994 to objectively evaluate the state of the art in protein structure prediction. Key aspects include:</p>
-        <ul>
-          <li>Blind prediction format: participants predict structures of proteins whose experimental structures are
-            determined but not yet published</li>
-          <li>Standard metrics: primarily GDT_TS (Global Distance Test) and RMSD (Root Mean Square Deviation) to
-            quantify prediction accuracy</li>
-          <li>Diverse targets: ranging from easy comparative modeling cases to difficult free modeling scenarios</li>
-          <li>Independent assessment: ensures unbiased evaluation of different methods</li>
-        </ul>
+          <p>These methods are time-consuming (often taking months to years), expensive, and technically challenging,
+            creating bottlenecks in structural biology research. This gap between known protein sequences (~200 million)
+            and experimentally determined structures (~180,000) motivated computational prediction approaches.</p>
 
-        <div class="image-container text-center">
-          <figure class="mx-auto" style="width: 50%;">
-            <img src="assets/images/casp.png" alt="CASP Competition - Critical Assessment of Structure Prediction"
-              class="img-fluid shadow" style="border-radius: 8px;">
-            <figcaption>Figure: The CASP competition, established in 1994, has been the gold standard benchmark for
-              protein structure prediction for nearly three decades.</figcaption>
-          </figure>
-        </div>
+          <h3>What is CASP (Critical Assessment of Structure Prediction)?</h3>
+          <p>CASP (Critical Assessment of Structure Prediction) is a biennial community-wide experiment established in
+            1994 to objectively evaluate the state of the art in protein structure prediction. Key aspects include:</p>
+          <ul>
+            <li>Blind prediction format: participants predict structures of proteins whose experimental structures are
+              determined but not yet published</li>
+            <li>Standard metrics: primarily GDT_TS (Global Distance Test) and RMSD (Root Mean Square Deviation) to
+              quantify prediction accuracy</li>
+            <li>Diverse targets: ranging from easy comparative modeling cases to difficult free modeling scenarios</li>
+            <li>Independent assessment: ensures unbiased evaluation of different methods</li>
+          </ul>
 
-        <p>CASP has been the gold standard benchmark for progress in the protein structure prediction field for nearly
-          three decades, chronicling incremental advances until AlphaFold2's breakthrough.</p>
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 50%;">
+              <img src="assets/images/casp.png" alt="CASP Competition - Critical Assessment of Structure Prediction"
+                class="img-fluid shadow" style="border-radius: 8px;">
+              <figcaption>Figure: The CASP competition, established in 1994, has been the gold standard benchmark for
+                protein structure prediction for nearly three decades.</figcaption>
+            </figure>
+          </div>
 
-        <h3>How Did AlphaFold2 Revolutionize Prediction?</h3>
-        <p>AlphaFold2 represented a paradigm shift in protein structure prediction through several key innovations:</p>
-        <ul>
-          <li><strong>End-to-end differentiable architecture:</strong> Unlike previous approaches that combined
-            disparate methods, AlphaFold2 integrated all components into a single neural network</li>
-          <li><strong>Attention mechanisms:</strong> Leveraged transformer architectures to capture long-range
-            dependencies and evolutionary patterns between residues</li>
-          <li><strong>Structure module:</strong> Directly predicted 3D coordinates through iterative refinement rather
-            than assembling fragments</li>
-          <li><strong>Evolutionary information:</strong> Effectively leveraged multiple sequence alignments to extract
-            co-evolutionary signals</li>
-          <li><strong>Self-confidence scoring:</strong> Developed pLDDT metric to assess prediction quality without
-            ground truth</li>
-        </ul>
+          <p>CASP has been the gold standard benchmark for progress in the protein structure prediction field for nearly
+            three decades, chronicling incremental advances until AlphaFold2's breakthrough.</p>
 
-        <div class="image-container text-center">
-          <figure class="mx-auto" style="width: 70%;">
-            <img src="assets/images/casp_gdt_scores_Alphafold2_broke_record_in_2020.jpg"
-              alt="Chart showing dramatic improvement in CASP scores with AlphaFold2 in 2020" class="img-fluid shadow"
-              style="border-radius: 8px;">
-            <figcaption>Figure: The unprecedented leap in prediction accuracy achieved by AlphaFold2 in CASP14 (2020),
-              showing median GDT scores across CASP competitions from 2006 to 2020.</figcaption>
-          </figure>
-        </div>
+          <h3>How Did AlphaFold2 Revolutionize Prediction?</h3>
+          <p>AlphaFold2 represented a paradigm shift in protein structure prediction through several key innovations:
+          </p>
+          <ul>
+            <li><strong>End-to-end differentiable architecture:</strong> Unlike previous approaches that combined
+              disparate methods, AlphaFold2 integrated all components into a single neural network</li>
+            <li><strong>Attention mechanisms:</strong> Leveraged transformer architectures to capture long-range
+              dependencies and evolutionary patterns between residues</li>
+            <li><strong>Structure module:</strong> Directly predicted 3D coordinates through iterative refinement rather
+              than assembling fragments</li>
+            <li><strong>Evolutionary information:</strong> Effectively leveraged multiple sequence alignments to extract
+              co-evolutionary signals</li>
+            <li><strong>Self-confidence scoring:</strong> Developed pLDDT metric to assess prediction quality without
+              ground truth</li>
+          </ul>
 
-        <p>The result was a system that achieved unprecedented accuracy in CASP14 (2020), with a median GDT_TS of 92.4
-          for all targets and even achieving competitive results for the most difficult free modeling cases. This
-          performance approaches experimental accuracy, effectively solving a 50-year-old grand challenge in biology.
-        </p>
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 70%;">
+              <img src="assets/images/casp_gdt_scores_Alphafold2_broke_record_in_2020.jpg"
+                alt="Chart showing dramatic improvement in CASP scores with AlphaFold2 in 2020" class="img-fluid shadow"
+                style="border-radius: 8px;">
+              <figcaption>Figure: The unprecedented leap in prediction accuracy achieved by AlphaFold2 in CASP14 (2020),
+                showing median GDT scores across CASP competitions from 2006 to 2020.</figcaption>
+            </figure>
+          </div>
 
-        <h3>Team at AlphaFold</h3>
-        <p>The AlphaFold breakthrough came from DeepMind, a London-based AI company (acquired by Google in 2014). The
-          interdisciplinary team combined expertise from machine learning, structural biology, physics, and
-          bioinformatics:</p>
+          <p>The result was a system that achieved unprecedented accuracy in CASP14 (2020), with a median GDT_TS of 92.4
+            for all targets and even achieving competitive results for the most difficult free modeling cases. This
+            performance approaches experimental accuracy, effectively solving a 50-year-old grand challenge in biology.
+          </p>
 
-        <div class="row mb-4">
-          <div class="col-md-6">
-            <div class="text-center">
-              <figure class="mx-auto" style="width: 60%;">
-                <img src="assets/authors/Demis_Hassabis.png"
-                  alt="Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs"
-                  class="img-fluid shadow" style="border-radius: 8px;">
-                <figcaption>Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs</figcaption>
-              </figure>
+          <h3>Team at AlphaFold</h3>
+          <p>The AlphaFold breakthrough came from DeepMind, a London-based AI company (acquired by Google in 2014). The
+            interdisciplinary team combined expertise from machine learning, structural biology, physics, and
+            bioinformatics:</p>
+
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="text-center">
+                <figure class="mx-auto" style="width: 60%;">
+                  <img src="assets/authors/Demis_Hassabis.png"
+                    alt="Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs"
+                    class="img-fluid shadow" style="border-radius: 8px;">
+                  <figcaption>Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="text-center">
+                <figure class="mx-auto" style="width: 60%;">
+                  <img src="assets/authors/John_Jumper.png"
+                    alt="Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold"
+                    class="img-fluid shadow" style="border-radius: 8px;">
+                  <figcaption>Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold</figcaption>
+                </figure>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="text-center">
-              <figure class="mx-auto" style="width: 60%;">
-                <img src="assets/authors/John_Jumper.png"
-                  alt="Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold"
-                  class="img-fluid shadow" style="border-radius: 8px;">
-                <figcaption>Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold</figcaption>
-              </figure>
-            </div>
+
+          <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Nobel Prize Recognition!</h4>
+            <p>In October 2024, Sir Demis Hassabis and Dr. John Jumper were co-awarded the Nobel Prize in Chemistry "for
+              the development of AlphaFold, which predicts the structure of proteins with unprecedented accuracy." This
+              landmark recognition highlights the revolutionary impact of AI on fundamental scientific challenges and
+              represents one of the fastest transitions from scientific breakthrough to Nobel recognition in recent
+              history.</p>
           </div>
-        </div>
 
-        <div class="alert alert-success" role="alert">
-          <h4 class="alert-heading">Nobel Prize Recognition!</h4>
-          <p>In October 2024, Sir Demis Hassabis and Dr. John Jumper were co-awarded the Nobel Prize in Chemistry "for
-            the development of AlphaFold, which predicts the structure of proteins with unprecedented accuracy." This
-            landmark recognition highlights the revolutionary impact of AI on fundamental scientific challenges and
-            represents one of the fastest transitions from scientific breakthrough to Nobel recognition in recent
-            history.</p>
-        </div>
-
-        <ul>
-          <li><strong>John Jumper:</strong> Lead researcher and first author of the AlphaFold2 paper</li>
-          <li><strong>Demis Hassabis:</strong> CEO and co-founder of DeepMind, with backgrounds in neuroscience and AI
-          </li>
-          <li><strong>Key team members:</strong> Richard Evans, Alexander Pritzel, Tim Green, Michael Figurnov, Olaf
-            Ronneberger, Kathryn Tunyasuvunakool, Russ Bates, and many others</li>
-        </ul>
-        <p>The team collaborated with structural biologists and validated their approach through rigorous testing before
-          the CASP14 competition. The project demonstrates the power of interdisciplinary research combining deep
-          learning expertise with domain knowledge in biology to solve complex scientific problems.</p>
+          <ul>
+            <li><strong>John Jumper:</strong> Lead researcher and first author of the AlphaFold2 paper</li>
+            <li><strong>Demis Hassabis:</strong> CEO and co-founder of DeepMind, with backgrounds in neuroscience and AI
+            </li>
+            <li><strong>Key team members:</strong> Richard Evans, Alexander Pritzel, Tim Green, Michael Figurnov, Olaf
+              Ronneberger, Kathryn Tunyasuvunakool, Russ Bates, and many others</li>
+          </ul>
+          <p>The team collaborated with structural biologists and validated their approach through rigorous testing
+            before the CASP14 competition. The project demonstrates the power of interdisciplinary research combining
+            deep learning expertise with domain knowledge in biology to solve complex scientific problems.</p>
         </section>
 
         <section id="alphafold-architecture">
