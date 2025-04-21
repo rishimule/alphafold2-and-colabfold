@@ -41,6 +41,93 @@
     <h2>Related Work</h2>
     <p>AlphaFold2 builds upon decades of protein structure prediction research, dramatically improving upon previous methods. The seminal paper by Jumper et al. (2021) titled "Highly accurate protein structure prediction with AlphaFold" published in Nature revolutionized the field by achieving unprecedented accuracy in CASP14 <cite><a href="#ref1">[1]</a></cite>. Our work directly builds on ColabFold by Mirdita et al. (2022), which made AlphaFold more accessible through Google Colab implementation <cite><a href="#ref2">[2]</a></cite>. Unlike previous approaches that relied on fragment assembly and physics-based refinement, AlphaFold2 uses attention-based deep learning to directly predict 3D coordinates. Our implementation explores practical applications of these methods for educational purposes.</p>
   </section>
+
+  <section id="alphafold-architecture">
+    <h2>AlphaFold2 Architecture: A Deep Dive</h2>
+    
+    <p>The AlphaFold2 architecture represents a revolutionary approach to protein structure prediction, combining evolutionary information with deep learning to achieve unprecedented accuracy. Unlike previous methods that relied on fragment assembly and physics-based simulations, AlphaFold2 uses an end-to-end neural network approach to directly predict 3D coordinates.</p>
+    
+    <div class="image-container">
+      <figure>
+        <img src="assets/Alphafold_architecture.png" alt="Overall architecture of AlphaFold2 showing the pipeline from input sequence to 3D structure">
+        <figcaption>Figure 2: Overall architecture of AlphaFold2 showing the complete pipeline from amino acid sequence to 3D structure prediction.</figcaption>
+      </figure>
+    </div>
+    
+    <h3>Key Components</h3>
+    
+    <h4>1. Multiple Sequence Alignment (MSA) Processing</h4>
+    <p>The first critical component of AlphaFold2 is the processing of evolutionary information through multiple sequence alignments:</p>
+    <ul>
+      <li>Searches genetic databases to find evolutionarily related sequences</li>
+      <li>Aligns these sequences to capture conservation patterns</li>
+      <li>Generates a rich representation that captures which amino acids tend to co-evolve</li>
+      <li>This evolutionary information is crucial, as co-evolving residues often indicate spatial proximity in the folded structure</li>
+    </ul>
+    
+    <h4>2. Template Processing</h4>
+    <p>While not always necessary for accurate predictions, AlphaFold2 can use information from known protein structures:</p>
+    <ul>
+      <li>Searches structural databases (PDB) for proteins with similar sequences</li>
+      <li>Extracts distance maps and structural features from these templates</li>
+      <li>Integrates this information with sequence-based predictions</li>
+      <li>This component helps guide the model, especially for proteins with known homologs</li>
+    </ul>
+    
+    <h4>3. Evoformer</h4>
+    <p>The core of AlphaFold2's architecture is the Evoformer, a novel transformer-based neural network:</p>
+    <ul>
+      <li>Contains 48 identical blocks that iteratively refine representations</li>
+      <li>Processes both MSA and pairwise representations simultaneously</li>
+      <li>Uses specialized attention mechanisms to update information bidirectionally between these representations</li>
+      <li>Key mechanisms include:
+        <ul>
+          <li>Row-wise gated self-attention: processes evolutionary information across sequence positions</li>
+          <li>Column-wise gated self-attention: processes evolutionary information across aligned sequences</li>
+          <li>Triangle multiplication: models higher-order interactions between residues</li>
+          <li>Transition layers: non-linear processing that integrates information</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <div class="image-container">
+      <figure>
+        <img src="assets/evoformer.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
+        <figcaption>Figure 3: Detailed structure of the Evoformer module showing the various attention mechanisms and information flow.</figcaption>
+      </figure>
+    </div>
+    
+    <h4>4. Structure Module</h4>
+    <p>The final stage of AlphaFold2 is the Structure Module, which converts refined representations into 3D coordinates:</p>
+    <ul>
+      <li>Consists of 8 blocks with shared weights</li>
+      <li>Takes the representations from the Evoformer and gradually builds the 3D structure</li>
+      <li>Uses Invariant Point Attention (IPA): a novel attention mechanism that respects the physics of 3D space</li>
+      <li>Predicts backbone frames (rotations and translations)</li>
+      <li>Computes atom positions based on these frames</li>
+      <li>Predicts torsion angles (χ angles) to determine side chain conformations</li>
+    </ul>
+    <div class="image-container">
+      <figure>
+        <img src="assets/structure_module.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
+        <figcaption>Figure 4: Detailed structure of the Structure module showing the various attention mechanisms and information flow.</figcaption>
+      </figure>
+    </div>
+    
+    <h4>5. Recycling and Confidence Estimation</h4>
+    <p>AlphaFold2 employs two additional techniques that significantly improve its performance:</p>
+    <ul>
+      <li><strong>Recycling:</strong> The entire prediction process is repeated multiple times (typically 3), with each iteration using the output of the previous one as input. This allows the model to refine its predictions based on emerging structural information.</li>
+      <li><strong>Confidence Estimation:</strong> AlphaFold2 provides two key metrics:
+        <ul>
+          <li>pLDDT (predicted Local Distance Difference Test): per-residue confidence scores from 0-100, with higher values indicating greater confidence</li>
+          <li>PAE (Predicted Aligned Error): estimates the expected position error between any two residues, providing insight into the reliability of domain arrangements in multi-domain proteins</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <p>This sophisticated architecture enables AlphaFold2 to achieve remarkable accuracy, with many predictions reaching experimental-level quality (GDT scores > 90). The integration of evolutionary information with geometric reasoning through deep learning represents a fundamental breakthrough in protein structure prediction.</p>
+  </section>
   
   <section id="methods">
     <h2>Methods</h2>
