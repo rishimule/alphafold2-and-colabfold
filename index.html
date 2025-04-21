@@ -37,28 +37,64 @@
 </div>
 <div class="row">
 <div class="col">
+  <section id="related-work">
+    <h2>Related Work</h2>
+    <p>AlphaFold2 builds upon decades of protein structure prediction research, dramatically improving upon previous methods. The seminal paper by Jumper et al. (2021) titled "Highly accurate protein structure prediction with AlphaFold" published in Nature revolutionized the field by achieving unprecedented accuracy in CASP14 <cite><a href="#ref1">[1]</a></cite>. Our work directly builds on ColabFold by Mirdita et al. (2022), which made AlphaFold more accessible through Google Colab implementation <cite><a href="#ref2">[2]</a></cite>. Unlike previous approaches that relied on fragment assembly and physics-based refinement, AlphaFold2 uses attention-based deep learning to directly predict 3D coordinates. Our implementation explores practical applications of these methods for educational purposes.</p>
+  </section>
+  
+  <section id="methods">
+    <h2>Methods</h2>
+    <p>Our approach utilizes ColabFold, an open-source adaptation of AlphaFold2 designed for accessibility. The method employs a multi-stage neural network architecture consisting of:</p>
+    <ol>
+      <li>Multiple Sequence Alignment (MSA) generation using MMseqs2 to capture evolutionary information</li>
+      <li>Template structure identification from the PDB database</li>
+      <li>Neural network processing through the Evoformer (48 blocks) which refines sequence representations</li>
+      <li>Structure module (8 blocks) that predicts backbone coordinates and side chain orientations</li>
+      <li>Confidence assessment using pLDDT (predicted Local Distance Difference Test) scores</li>
+    </ol>
+    <p>We focused on lysozyme as our test protein, which showed very high confidence scores (pLDDT ~0.98) and compared it with experimentally determined structures (PDB ID: 1LYZ).</p>
+  </section>
+  
+  <section id="code">
+    <h2>Link to Code</h2>
+    <p>Our implementation and demonstration can be found in our GitHub repository: <a href="https://github.com/rishimule/alphafold2-and-colabfold.git" target="_blank">AlphaFold2-Demo</a>. The repository includes our Jupyter notebook with step-by-step execution of the ColabFold pipeline, visualization code, and explanations of each component. We've also incorporated auxiliary scripts for structural comparison between predicted models and experimentally determined structures.</p>
+  </section>
+  
+  <section id="experiments">
+    <h2>Experiments</h2>
+    <p>We conducted structure prediction experiments on lysozyme (129 amino acids), a well-characterized enzyme found in egg whites and human tears. Our implementation:</p>
+    <ol>
+      <li>Generated deep multiple sequence alignments (>2500 sequences)</li>
+      <li>Identified suitable templates (1ior, 1ioq, 1iot, 1kxw)</li>
+      <li>Ran predictions with 5 recycles across multiple AlphaFold models</li>
+      <li>Achieved exceptional prediction quality with pLDDT scores averaging 0.984 and ptm scores of 0.913</li>
+      <li>Visualized predictions using both rainbow coloring (by residue position) and confidence coloring</li>
+      <li>Compared our predicted structure with the experimental structure (1LYZ)</li>
+    </ol>
+    
+    <div class="image-container">
+      <figure>
+        <img src="assets/prediction_results.png" alt="AlphaFold2 prediction results showing high confidence (blue) throughout the lysozyme structure">
+        <figcaption>Figure 1: AlphaFold2 prediction of lysozyme structure showing high confidence (blue) throughout the protein.</figcaption>
+      </figure>
+    </div>
+    
+    <p>The high confidence score (blue coloring in pLDDT visualization) indicates a highly reliable prediction across the entire protein structure, demonstrating AlphaFold2's remarkable ability to predict protein structures with near-experimental accuracy.</p>
+  </section>
+  
+  <section id="discussion">
+    <h2>Discussion</h2>
+    <p>Our exploration of AlphaFold2 and ColabFold highlights the transformative impact of deep learning on structural biology. The ability to predict protein structures with such high accuracy in minutes rather than months of laboratory work represents a paradigm shift in the field. Beyond technical achievements, several questions emerge:</p>
+    
+    <ol>
+      <li>How will this technology democratize structural biology research globally?</li>
+      <li>What impact will rapidly available protein structures have on drug discovery and personalized medicine?</li>
+      <li>How might prediction of challenging structures (membrane proteins, large complexes, intrinsically disordered regions) improve in future iterations?</li>
+    </ol>
+    
+    <p>While AlphaFold2 represents a monumental achievement, challenges remain in predicting protein-small molecule interactions, dynamic conformational changes, and structure prediction with limited sequence data. Our work demonstrates the educational value of making these cutting-edge tools accessible to students and researchers with limited computational resources.</p>
+  </section>
 
-<h2>Related Work; Methods; Link to Code; Experiments; Disucssion</h2>
-
-<p>
-Scoring for your final project writeup rubric will be as follows:
-<br>
-+1: You have a good title and have identified the project team members as authors.
-<br>
-+1: Introduction poses the question
-<br>
-+1: Related work section properly cites and links and says a couple words about the paper(s) on which the work is based, and how your work relates.
-<br>
-+1: The methods you are using are described briefly and precisely.
-<br>
-+1: The aspects that distinguish your study from previous work are described clearly (e.g. what is your particular focus)
-<br>
-+1: Your analysis is solid, and you use diagrams effectively to show your main methods or results visually.
-<br>
-+1: You have created some code (e.g., link to github), demonstrating the methods.
-<br>
-+1: You include a discussion with your own opinions, questions, or perspective on your findings.
-</p>
 <h3>References</h3>
 
 <p><a name="jumper-2021">[1]</a> <a href="https://www.nature.com/articles/s41586-021-03819-2"
