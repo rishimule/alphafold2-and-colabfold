@@ -1,501 +1,547 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<title>AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction</title>
-<meta property="og:title" content="AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction" />
-<meta name="twitter:title" content="AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction" />
-<meta name="description" content="Exploring AlphaFold2 and ColabFold's revolutionary approach to protein structure prediction through deep learning." />
-<meta property="og:description" content="Exploring AlphaFold2 and ColabFold's revolutionary approach to protein structure prediction through deep learning models that achieve near-experimental accuracy." />
-<meta name="twitter:description" content="Discover how AlphaFold2 and ColabFold transformed protein structure prediction from months of lab work to minutes of computation using neural networks." />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" /> 
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<!-- bootstrap for mobile-friendly layout -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
+  <title>AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction</title>
+  <meta property="og:title" content="AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction" />
+  <meta name="twitter:title" content="AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction" />
+  <meta name="description"
+    content="Exploring AlphaFold2 and ColabFold's revolutionary approach to protein structure prediction through deep learning." />
+  <meta property="og:description"
+    content="Exploring AlphaFold2 and ColabFold's revolutionary approach to protein structure prediction through deep learning models that achieve near-experimental accuracy." />
+  <meta name="twitter:description"
+    content="Discover how AlphaFold2 and ColabFold transformed protein structure prediction from months of lab work to minutes of computation using neural networks." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- bootstrap for mobile-friendly layout -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 
 </head>
+
 <body class="nd-docs">
-<div class="nd-pageheader">
- <div class="container">
- <h1 class="lead">
- <nobr class="widenobr">AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction</nobr>
- <nobr class="widenobr">For CS 7150</nobr>
- </h1>
- </div>
-</div><!-- end nd-pageheader -->
+  <div class="nd-pageheader">
+    <div class="container">
+      <h1 class="lead">
+        <nobr class="widenobr">AlphaFold2 & ColabFold: Next-Gen Protein Structure Prediction</nobr>
+        <nobr class="widenobr">For CS 7150</nobr>
+      </h1>
+    </div>
+  </div><!-- end nd-pageheader -->
 
-<div class="container">
-<div class="row">
-<div class="col justify-content-center text-center">
-<h2>An Analysis of "Alphafold2 - Highly accurate protein structure prediction with AlphaFold"</h2>
-</div>
-</div>
-<div class="row my-4">
-<div class="col">
-  <section id="paper-description">
-    <p>The 2021 paper "Highly accurate protein structure prediction with AlphaFold" by Jumper et al. published in Nature represents a monumental breakthrough in computational biology. For over 50 years, scientists have struggled with the "protein folding problem" - predicting how a chain of amino acids folds into a functional 3D structure based solely on its sequence. This challenge has been one of biology's grand unsolved problems due to the astronomical number of possible configurations a protein could theoretically adopt.</p>
-    
-    <p>AlphaFold2, developed by DeepMind, revolutionized this field by using deep learning to predict protein structures with near-experimental accuracy. The paper details a neural network architecture that combines attention mechanisms (similar to those used in language models) with representations of evolutionarily related protein sequences to deduce the most likely 3D structure. What makes this work remarkable is not just the accuracy achieved (median GDT scores >90 in CASP14), but how it effectively solved a decades-old scientific challenge that many thought would take many more years to crack.</p>
-    
-    <p>Our team was particularly interested in replicating the AlphaFold2 architecture to understand how this AI system works and explore its potential applications. After researching implementation options, we discovered ColabFold - an adaptation of AlphaFold2 designed to run efficiently on Google Colab. ColabFold provides accessibility to this powerful technology without requiring specialized hardware. Using ColabFold, we were able to successfully replicate protein structure predictions and gain hands-on experience with this revolutionary technology that's transforming structural biology research worldwide.</p>
-  </section>
-</div>
-</div>
-<div class="row">
-<div class="col">
-  <section id="related-work">
-    <h2>Related Work</h2>
-    <p>AlphaFold2 builds upon decades of protein structure prediction research, dramatically improving upon previous methods. The seminal paper by Jumper et al. (2021) titled "Highly accurate protein structure prediction with AlphaFold" published in Nature revolutionized the field by achieving unprecedented accuracy in CASP14 <cite><a href="#ref1">[1]</a></cite>. Our work directly builds on ColabFold by Mirdita et al. (2022), which made AlphaFold more accessible through Google Colab implementation <cite><a href="#ref2">[2]</a></cite>. Unlike previous approaches that relied on fragment assembly and physics-based refinement, AlphaFold2 uses attention-based deep learning to directly predict 3D coordinates. Our implementation explores practical applications of these methods for educational purposes.</p>
-    
-    <h3>Why Is Protein Structure Important?</h3>
-    <p>Proteins are the molecular machines that carry out most cellular functions, from catalyzing biochemical reactions to providing structural support. Their function is intimately tied to their three-dimensional structure - the precise spatial arrangement of atoms that determines how a protein interacts with other molecules. Understanding protein structures is crucial for:</p>
-    <ul>
-      <li>Understanding disease mechanisms at the molecular level</li>
-      <li>Rational drug design and development of therapeutics</li>
-      <li>Engineering proteins with novel functions for biotechnology</li>
-      <li>Deciphering biological processes and cellular machinery</li>
-    </ul>
-    
-    <div class="image-container text-center">
-      <figure class="mx-auto" style="width: 60%;">
-        <img src="assets/images/protein_struct.png" alt="Protein folding process: from amino acid sequence to 3D protein structure" class="img-fluid shadow" style="border-radius: 8px;">
-        <figcaption>Figure: The protein folding problem - how a linear chain of amino acids folds into a functional 3D structure.</figcaption>
-      </figure>
+  <div class="container">
+    <div class="row">
+      <div class="col justify-content-center text-center">
+        <h2>An Analysis of "Alphafold2 - Highly accurate protein structure prediction with AlphaFold"</h2>
+      </div>
     </div>
-    
-    <p>The classic paradigm "sequence determines structure determines function" highlights why predicting structure from amino acid sequence has been a grand challenge in molecular biology for over 50 years.</p>
-    
-    <h3>What are the Experimental Methods of Getting Protein Structure?</h3>
-    <p>Traditional experimental methods for determining protein structures include:</p>
-    <ul>
-      <li><strong>X-ray Crystallography:</strong> The gold standard for high-resolution structures (often &lt;1.5Å resolution), but requires protein crystallization which can be difficult for many proteins</li>
-      <li><strong>Nuclear Magnetic Resonance (NMR) Spectroscopy:</strong> Works with proteins in solution but typically limited to smaller proteins (&lt;50kDa)</li>
-      <li><strong>Cryo-electron Microscopy (cryo-EM):</strong> Recent advances allow near-atomic resolution, especially valuable for large complexes</li>
-      <li><strong>Small-angle X-ray Scattering (SAXS):</strong> Provides low-resolution shape information</li>
-    </ul>
-    
-    <div class="image-container text-center">
-      <figure class="mx-auto" style="width: 50%;">
-        <img src="assets/images/experimental_methods.png" alt="Experimental methods for protein structure determination: X-Ray crystallography, NMR, and Cryo-EM" class="img-fluid shadow" style="border-radius: 8px;">
-        <figcaption>Figure: Major experimental techniques for protein structure determination: X-Ray crystallography, Nuclear magnetic resonance spectroscopy, and Cryoelectron microscopy.</figcaption>
-      </figure>
+    <div class="row my-4">
+      <div class="col">
+        <section id="paper-description">
+          <p>The 2021 paper "Highly accurate protein structure prediction with AlphaFold" by Jumper et al. published in
+            Nature represents a monumental breakthrough in computational biology. For over 50 years, scientists have
+            struggled with the "protein folding problem" - predicting how a chain of amino acids folds into a functional
+            3D structure based solely on its sequence. This challenge has been one of biology's grand unsolved problems
+            due to the astronomical number of possible configurations a protein could theoretically adopt.</p>
+
+          <p>AlphaFold2, developed by DeepMind, revolutionized this field by using deep learning to predict protein
+            structures with near-experimental accuracy. The paper details a neural network architecture that combines
+            attention mechanisms (similar to those used in language models) with representations of evolutionarily
+            related protein sequences to deduce the most likely 3D structure. What makes this work remarkable is not
+            just the accuracy achieved (median GDT scores >90 in CASP14), but how it effectively solved a decades-old
+            scientific challenge that many thought would take many more years to crack.</p>
+
+          <p>Our team was particularly interested in replicating the AlphaFold2 architecture to understand how this AI
+            system works and explore its potential applications. After researching implementation options, we discovered
+            ColabFold - an adaptation of AlphaFold2 designed to run efficiently on Google Colab. ColabFold provides
+            accessibility to this powerful technology without requiring specialized hardware. Using ColabFold, we were
+            able to successfully replicate protein structure predictions and gain hands-on experience with this
+            revolutionary technology that's transforming structural biology research worldwide.</p>
+        </section>
+      </div>
     </div>
-    
-    <p>These methods are time-consuming (often taking months to years), expensive, and technically challenging, creating bottlenecks in structural biology research. This gap between known protein sequences (~200 million) and experimentally determined structures (~180,000) motivated computational prediction approaches.</p>
-    
-    <h3>What is CASP (Critical Assessment of Structure Prediction)?</h3>
-    <p>CASP (Critical Assessment of Structure Prediction) is a biennial community-wide experiment established in 1994 to objectively evaluate the state of the art in protein structure prediction. Key aspects include:</p>
-    <ul>
-      <li>Blind prediction format: participants predict structures of proteins whose experimental structures are determined but not yet published</li>
-      <li>Standard metrics: primarily GDT_TS (Global Distance Test) and RMSD (Root Mean Square Deviation) to quantify prediction accuracy</li>
-      <li>Diverse targets: ranging from easy comparative modeling cases to difficult free modeling scenarios</li>
-      <li>Independent assessment: ensures unbiased evaluation of different methods</li>
-    </ul>
-    
-    <div class="image-container text-center">
-      <figure class="mx-auto" style="width: 50%;">
-        <img src="assets/images/casp.png" alt="CASP Competition - Critical Assessment of Structure Prediction" class="img-fluid shadow" style="border-radius: 8px;">
-        <figcaption>Figure: The CASP competition, established in 1994, has been the gold standard benchmark for protein structure prediction for nearly three decades.</figcaption>
-      </figure>
-    </div>
-    
-    <p>CASP has been the gold standard benchmark for progress in the protein structure prediction field for nearly three decades, chronicling incremental advances until AlphaFold2's breakthrough.</p>
-    
-    <h3>How Did AlphaFold2 Revolutionize Prediction?</h3>
-    <p>AlphaFold2 represented a paradigm shift in protein structure prediction through several key innovations:</p>
-    <ul>
-      <li><strong>End-to-end differentiable architecture:</strong> Unlike previous approaches that combined disparate methods, AlphaFold2 integrated all components into a single neural network</li>
-      <li><strong>Attention mechanisms:</strong> Leveraged transformer architectures to capture long-range dependencies and evolutionary patterns between residues</li>
-      <li><strong>Structure module:</strong> Directly predicted 3D coordinates through iterative refinement rather than assembling fragments</li>
-      <li><strong>Evolutionary information:</strong> Effectively leveraged multiple sequence alignments to extract co-evolutionary signals</li>
-      <li><strong>Self-confidence scoring:</strong> Developed pLDDT metric to assess prediction quality without ground truth</li>
-    </ul>
-    
-    <div class="image-container text-center">
-      <figure class="mx-auto" style="width: 70%;">
-        <img src="assets/images/casp_gdt_scores_Alphafold2_broke_record_in_2020.jpg" alt="Chart showing dramatic improvement in CASP scores with AlphaFold2 in 2020" class="img-fluid shadow" style="border-radius: 8px;">
-        <figcaption>Figure: The unprecedented leap in prediction accuracy achieved by AlphaFold2 in CASP14 (2020), showing median GDT scores across CASP competitions from 2006 to 2020.</figcaption>
-      </figure>
-    </div>
-    
-    <p>The result was a system that achieved unprecedented accuracy in CASP14 (2020), with a median GDT_TS of 92.4 for all targets and even achieving competitive results for the most difficult free modeling cases. This performance approaches experimental accuracy, effectively solving a 50-year-old grand challenge in biology.</p>
-    
-    <h3>Team at AlphaFold</h3>
-    <p>The AlphaFold breakthrough came from DeepMind, a London-based AI company (acquired by Google in 2014). The interdisciplinary team combined expertise from machine learning, structural biology, physics, and bioinformatics:</p>
-    
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <div class="text-center">
+    <div class="row">
+      <div class="col">
+        <div class="image-container text-center">
           <figure class="mx-auto" style="width: 60%;">
-            <img src="assets/authors/Demis_Hassabis.png" alt="Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs" class="img-fluid shadow" style="border-radius: 8px;">
-            <figcaption>Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs</figcaption>
+            <img src="assets/images/protein_struct.png"
+              alt="Protein folding process: from amino acid sequence to 3D protein structure" class="img-fluid shadow"
+              style="border-radius: 8px;">
+            <figcaption>Figure: The protein folding problem - how a linear chain of amino acids folds into a functional
+              3D structure.</figcaption>
           </figure>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="text-center">
-          <figure class="mx-auto" style="width: 60%;">
-            <img src="assets/authors/John_Jumper.png" alt="Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold" class="img-fluid shadow" style="border-radius: 8px;">
-            <figcaption>Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold</figcaption>
+
+        <p>The classic paradigm "sequence determines structure determines function" highlights why predicting structure
+          from amino acid sequence has been a grand challenge in molecular biology for over 50 years.</p>
+
+        <h3>What are the Experimental Methods of Getting Protein Structure?</h3>
+        <p>Traditional experimental methods for determining protein structures include:</p>
+        <ul>
+          <li><strong>X-ray Crystallography:</strong> The gold standard for high-resolution structures (often &lt;1.5Å
+            resolution), but requires protein crystallization which can be difficult for many proteins</li>
+          <li><strong>Nuclear Magnetic Resonance (NMR) Spectroscopy:</strong> Works with proteins in solution but
+            typically limited to smaller proteins (&lt;50kDa)</li>
+          <li><strong>Cryo-electron Microscopy (cryo-EM):</strong> Recent advances allow near-atomic resolution,
+            especially valuable for large complexes</li>
+          <li><strong>Small-angle X-ray Scattering (SAXS):</strong> Provides low-resolution shape information</li>
+        </ul>
+
+        <div class="image-container text-center">
+          <figure class="mx-auto" style="width: 50%;">
+            <img src="assets/images/experimental_methods.png"
+              alt="Experimental methods for protein structure determination: X-Ray crystallography, NMR, and Cryo-EM"
+              class="img-fluid shadow" style="border-radius: 8px;">
+            <figcaption>Figure: Major experimental techniques for protein structure determination: X-Ray
+              crystallography, Nuclear magnetic resonance spectroscopy, and Cryoelectron microscopy.</figcaption>
           </figure>
         </div>
-      </div>
-    </div>
-    
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Nobel Prize Recognition!</h4>
-      <p>In October 2024, Sir Demis Hassabis and Dr. John Jumper were co-awarded the Nobel Prize in Chemistry "for the development of AlphaFold, which predicts the structure of proteins with unprecedented accuracy." This landmark recognition highlights the revolutionary impact of AI on fundamental scientific challenges and represents one of the fastest transitions from scientific breakthrough to Nobel recognition in recent history.</p>
-    </div>
-    
-    <ul>
-      <li><strong>John Jumper:</strong> Lead researcher and first author of the AlphaFold2 paper</li>
-      <li><strong>Demis Hassabis:</strong> CEO and co-founder of DeepMind, with backgrounds in neuroscience and AI</li>
-      <li><strong>Key team members:</strong> Richard Evans, Alexander Pritzel, Tim Green, Michael Figurnov, Olaf Ronneberger, Kathryn Tunyasuvunakool, Russ Bates, and many others</li>
-    </ul>
-    <p>The team collaborated with structural biologists and validated their approach through rigorous testing before the CASP14 competition. The project demonstrates the power of interdisciplinary research combining deep learning expertise with domain knowledge in biology to solve complex scientific problems.</p>
-  </section>
 
-  <section id="alphafold-architecture">
-    <h2>AlphaFold2 Architecture: A Deep Dive</h2>
-    
-    <p>The AlphaFold2 architecture represents a revolutionary approach to protein structure prediction, combining evolutionary information with deep learning to achieve unprecedented accuracy. Unlike previous methods that relied on fragment assembly and physics-based simulations, AlphaFold2 uses an end-to-end neural network approach to directly predict 3D coordinates.</p>
-    
-    <div class="image-container">
-      <figure>
-        <img src="assets/images/Alphafold_architecture.png" alt="Overall architecture of AlphaFold2 showing the pipeline from input sequence to 3D structure">
-        <figcaption>Figure: Overall architecture of AlphaFold2 showing the complete pipeline from amino acid sequence to 3D structure prediction.</figcaption>
-      </figure>
-    </div>
-    
-    <h3>Key Components</h3>
-    
-    <h4>1. Multiple Sequence Alignment (MSA) Processing</h4>
-    <p>The first critical component of AlphaFold2 is the processing of evolutionary information through multiple sequence alignments:</p>
-    <ul>
-      <li>Searches genetic databases to find evolutionarily related sequences</li>
-      <li>Aligns these sequences to capture conservation patterns</li>
-      <li>Generates a rich representation that captures which amino acids tend to co-evolve</li>
-      <li>This evolutionary information is crucial, as co-evolving residues often indicate spatial proximity in the folded structure</li>
-    </ul>
-    
-    <h4>2. Template Processing</h4>
-    <p>While not always necessary for accurate predictions, AlphaFold2 can use information from known protein structures:</p>
-    <ul>
-      <li>Searches structural databases (PDB) for proteins with similar sequences</li>
-      <li>Extracts distance maps and structural features from these templates</li>
-      <li>Integrates this information with sequence-based predictions</li>
-      <li>This component helps guide the model, especially for proteins with known homologs</li>
-    </ul>
-    
-    <h4>3. Evoformer</h4>
-    <p>The core of AlphaFold2's architecture is the Evoformer, a novel transformer-based neural network:</p>
-    <ul>
-      <li>Contains 48 identical blocks that iteratively refine representations</li>
-      <li>Processes both MSA and pairwise representations simultaneously</li>
-      <li>Uses specialized attention mechanisms to update information bidirectionally between these representations</li>
-      <li>Key mechanisms include:
+        <p>These methods are time-consuming (often taking months to years), expensive, and technically challenging,
+          creating bottlenecks in structural biology research. This gap between known protein sequences (~200 million)
+          and experimentally determined structures (~180,000) motivated computational prediction approaches.</p>
+
+        <h3>What is CASP (Critical Assessment of Structure Prediction)?</h3>
+        <p>CASP (Critical Assessment of Structure Prediction) is a biennial community-wide experiment established in
+          1994 to objectively evaluate the state of the art in protein structure prediction. Key aspects include:</p>
         <ul>
-          <li>Row-wise gated self-attention: processes evolutionary information across sequence positions</li>
-          <li>Column-wise gated self-attention: processes evolutionary information across aligned sequences</li>
-          <li>Triangle multiplication: models higher-order interactions between residues</li>
-          <li>Transition layers: non-linear processing that integrates information</li>
+          <li>Blind prediction format: participants predict structures of proteins whose experimental structures are
+            determined but not yet published</li>
+          <li>Standard metrics: primarily GDT_TS (Global Distance Test) and RMSD (Root Mean Square Deviation) to
+            quantify prediction accuracy</li>
+          <li>Diverse targets: ranging from easy comparative modeling cases to difficult free modeling scenarios</li>
+          <li>Independent assessment: ensures unbiased evaluation of different methods</li>
         </ul>
-      </li>
-    </ul>
-    
-    <div class="image-container">
-      <figure>
-        <img src="assets/images/evoformer.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
-        <figcaption>Figure 3: Detailed structure of the Evoformer module showing the various attention mechanisms and information flow.</figcaption>
-      </figure>
-    </div>
-    
-    <h4>4. Structure Module</h4>
-    <p>The final stage of AlphaFold2 is the Structure Module, which converts refined representations into 3D coordinates:</p>
-    <ul>
-      <li>Consists of 8 blocks with shared weights</li>
-      <li>Takes the representations from the Evoformer and gradually builds the 3D structure</li>
-      <li>Uses Invariant Point Attention (IPA): a novel attention mechanism that respects the physics of 3D space</li>
-      <li>Predicts backbone frames (rotations and translations)</li>
-      <li>Computes atom positions based on these frames</li>
-      <li>Predicts torsion angles (χ angles) to determine side chain conformations</li>
-    </ul>
-    <div class="image-container">
-      <figure>
-        <img src="assets/images/structure_module.png" alt="Detailed structure of the Evoformer module showing attention mechanisms">
-        <figcaption>Figure: Detailed structure of the Structure module showing the various attention mechanisms and information flow.</figcaption>
-      </figure>
-    </div>
-    
-    <h4>5. Recycling and Confidence Estimation</h4>
-    <p>AlphaFold2 employs two additional techniques that significantly improve its performance:</p>
-    <ul>
-      <li><strong>Recycling:</strong> The entire prediction process is repeated multiple times (typically 3), with each iteration using the output of the previous one as input. This allows the model to refine its predictions based on emerging structural information.</li>
-      <li><strong>Confidence Estimation:</strong> AlphaFold2 provides two key metrics:
+
+        <div class="image-container text-center">
+          <figure class="mx-auto" style="width: 50%;">
+            <img src="assets/images/casp.png" alt="CASP Competition - Critical Assessment of Structure Prediction"
+              class="img-fluid shadow" style="border-radius: 8px;">
+            <figcaption>Figure: The CASP competition, established in 1994, has been the gold standard benchmark for
+              protein structure prediction for nearly three decades.</figcaption>
+          </figure>
+        </div>
+
+        <p>CASP has been the gold standard benchmark for progress in the protein structure prediction field for nearly
+          three decades, chronicling incremental advances until AlphaFold2's breakthrough.</p>
+
+        <h3>How Did AlphaFold2 Revolutionize Prediction?</h3>
+        <p>AlphaFold2 represented a paradigm shift in protein structure prediction through several key innovations:</p>
         <ul>
-          <li>pLDDT (predicted Local Distance Difference Test): per-residue confidence scores from 0-100, with higher values indicating greater confidence</li>
-          <li>PAE (Predicted Aligned Error): estimates the expected position error between any two residues, providing insight into the reliability of domain arrangements in multi-domain proteins</li>
+          <li><strong>End-to-end differentiable architecture:</strong> Unlike previous approaches that combined
+            disparate methods, AlphaFold2 integrated all components into a single neural network</li>
+          <li><strong>Attention mechanisms:</strong> Leveraged transformer architectures to capture long-range
+            dependencies and evolutionary patterns between residues</li>
+          <li><strong>Structure module:</strong> Directly predicted 3D coordinates through iterative refinement rather
+            than assembling fragments</li>
+          <li><strong>Evolutionary information:</strong> Effectively leveraged multiple sequence alignments to extract
+            co-evolutionary signals</li>
+          <li><strong>Self-confidence scoring:</strong> Developed pLDDT metric to assess prediction quality without
+            ground truth</li>
         </ul>
-      </li>
-    </ul>
-    
-    <p>This sophisticated architecture enables AlphaFold2 to achieve remarkable accuracy, with many predictions reaching experimental-level quality (GDT scores > 90). The integration of evolutionary information with geometric reasoning through deep learning represents a fundamental breakthrough in protein structure prediction.</p>
-  </section>
-  
-  <section id="methods">
-    <h2>Methods</h2>
-    <p>Our approach utilizes ColabFold, an open-source adaptation of AlphaFold2 designed for accessibility. The method employs a multi-stage neural network architecture consisting of:</p>
-    <ol>
-      <li>Multiple Sequence Alignment (MSA) generation using MMseqs2 to capture evolutionary information</li>
-      <li>Template structure identification from the PDB database</li>
-      <li>Neural network processing through the Evoformer (48 blocks) which refines sequence representations</li>
-      <li>Structure module (8 blocks) that predicts backbone coordinates and side chain orientations</li>
-      <li>Confidence assessment using pLDDT (predicted Local Distance Difference Test) scores</li>
-    </ol>
-    <p>We focused on lysozyme as our test protein, which showed very high confidence scores (pLDDT ~0.98) and compared it with experimentally determined structures (PDB ID: 1LYZ).</p>
-  </section>
-  
-  <section id="code">
-    <h2>Link to Code</h2>
-    <p>Our implementation and demonstration can be found in our GitHub repository: <a href="https://github.com/rishimule/alphafold2-and-colabfold.git" target="_blank">AlphaFold2-Demo</a>. The repository includes our Jupyter notebook with step-by-step execution of the ColabFold pipeline, visualization code, and explanations of each component. We've also incorporated auxiliary scripts for structural comparison between predicted models and experimentally determined structures.</p>
-  </section>
-  
-  <section id="experiments">
-    <h2>Experiments</h2>
-    <p>We conducted structure prediction experiments on lysozyme (129 amino acids), a well-characterized enzyme found in egg whites and human tears. Our implementation:</p>
-    <ol>
-      <li>Generated deep multiple sequence alignments (>2500 sequences)</li>
-      <div class="image-container">
-        <figure>
-          <img src="assets/images/MSA_coverage.png" alt="Graph showing MSA for lysozyme.">
-          <figcaption>Figure: Graph showing MSA coverage.</figcaption>
-        </figure>
-      </div>
 
-      <div class="image-container">
-        <figure>
-          <img src="assets/images/MSA.png" alt="Top 5 MSA received for lysozyme input.">
-          <figcaption>Figure: Top 5 MSA received for lysozyme input.</figcaption>
-        </figure>
-      </div>
+        <div class="image-container text-center">
+          <figure class="mx-auto" style="width: 70%;">
+            <img src="assets/images/casp_gdt_scores_Alphafold2_broke_record_in_2020.jpg"
+              alt="Chart showing dramatic improvement in CASP scores with AlphaFold2 in 2020" class="img-fluid shadow"
+              style="border-radius: 8px;">
+            <figcaption>Figure: The unprecedented leap in prediction accuracy achieved by AlphaFold2 in CASP14 (2020),
+              showing median GDT scores across CASP competitions from 2006 to 2020.</figcaption>
+          </figure>
+        </div>
 
-      <li>Identified suitable templates (1ior, 1ioq, 1iot, 1kxw)</li><div class="image-container">
-        <figure>
-          <img src="assets/images/templates.png" alt="Suitable templates for lysozyme.">
-          <figcaption>Figure: Suitable templates for lysozyme.</figcaption>
-        </figure>
-      </div>
-      <li>Ran predictions with 5 recycles across multiple AlphaFold models</li>
-      <div class="image-container">
-        <figure>
-          <img src="assets/images/recycles.png" alt="2 recycles due to early stopping.">
-          <figcaption>Figure: 2 recycles due to early stopping.</figcaption>
-        </figure>
-      </div>
-      <li>Achieved exceptional prediction quality with pLDDT scores averaging 0.984 and ptm scores of 0.913</li>
-      <div class="image-container">
-        <figure>
-          <img src="assets/images/lysozyme_predicted_structure.png" alt="Prediction for lysozyme with confidence coloring.">
-          <figcaption>Figure: Prediction for lysozyme with confidence coloring.</figcaption>
-        </figure>
-      </div>
-      <li>Visualized predictions using both rainbow coloring (by residue position) and confidence coloring</li>
-      <li>Compared our predicted structure with the experimental structure (1LYZ)</li>
-      <div class="image-container">
-        <figure>
-          <img src="assets/images/prediction_comparison.png" alt="Predicted vs Experimental Structure of lysozyme.">
-          <figcaption>Figure: Predicted vs Experimental Structure of lysozyme.</figcaption>
-        </figure>
-      </div>
-    </ol>
-    
-    <div class="image-container">
-      <figure>
-        <img src="assets/prediction_results.png" alt="AlphaFold2 prediction results showing high confidence (blue) throughout the lysozyme structure">
-        <figcaption>Figure 1: AlphaFold2 prediction of lysozyme structure showing high confidence (blue) throughout the protein.</figcaption>
-      </figure>
-    </div>
-    
-    <p>The high confidence score (blue coloring in pLDDT visualization) indicates a highly reliable prediction across the entire protein structure, demonstrating AlphaFold2's remarkable ability to predict protein structures with near-experimental accuracy.</p>
-  </section>
-  
-  <section id="discussion">
-    <h2>Discussion</h2>
-    <p>Our exploration of AlphaFold2 and ColabFold highlights the transformative impact of deep learning on structural biology. The ability to predict protein structures with such high accuracy in minutes rather than months of laboratory work represents a paradigm shift in the field. Beyond technical achievements, several questions emerge:</p>
-    
-    <ol>
-      <li>How will this technology democratize structural biology research globally?</li>
-      <li>What impact will rapidly available protein structures have on drug discovery and personalized medicine?</li>
-      <li>How might prediction of challenging structures (membrane proteins, large complexes, intrinsically disordered regions) improve in future iterations?</li>
-    </ol>
-    
-    <p>While AlphaFold2 represents a monumental achievement, challenges remain in predicting protein-small molecule interactions, dynamic conformational changes, and structure prediction with limited sequence data. Our work demonstrates the educational value of making these cutting-edge tools accessible to students and researchers with limited computational resources.</p>
-  </section>
+        <p>The result was a system that achieved unprecedented accuracy in CASP14 (2020), with a median GDT_TS of 92.4
+          for all targets and even achieving competitive results for the most difficult free modeling cases. This
+          performance approaches experimental accuracy, effectively solving a 50-year-old grand challenge in biology.
+        </p>
 
-<h3>References</h3>
+        <h3>Team at AlphaFold</h3>
+        <p>The AlphaFold breakthrough came from DeepMind, a London-based AI company (acquired by Google in 2014). The
+          interdisciplinary team combined expertise from machine learning, structural biology, physics, and
+          bioinformatics:</p>
 
-<p><a name="jumper-2021">[1]</a> <a href="https://www.nature.com/articles/s41586-021-03819-2"
-  >Jumper, J., Evans, R., Pritzel, A. et al.
-  <em>Highly accurate protein structure prediction with AlphaFold.</em></a>
-  Nature 596, 583–589 (2021).
-</p>
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="text-center">
+              <figure class="mx-auto" style="width: 60%;">
+                <img src="assets/authors/Demis_Hassabis.png"
+                  alt="Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs"
+                  class="img-fluid shadow" style="border-radius: 8px;">
+                <figcaption>Sir Demis Hassabis - Co-founder and CEO of Google DeepMind and Isomorphic Labs</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-center">
+              <figure class="mx-auto" style="width: 60%;">
+                <img src="assets/authors/John_Jumper.png"
+                  alt="Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold"
+                  class="img-fluid shadow" style="border-radius: 8px;">
+                <figcaption>Dr. John Jumper - Google DeepMind Director and lead researcher of AlphaFold</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
 
-<p><a name="mirdita-2022">[2]</a> <a href="https://www.nature.com/articles/s41592-022-01488-1"
-  >Mirdita, M., Schütze, K., Moriwaki, Y. et al.
-  <em>ColabFold: making protein folding accessible to all.</em></a>
-  Nat Methods 19, 679–682 (2022).
-</p>
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">Nobel Prize Recognition!</h4>
+          <p>In October 2024, Sir Demis Hassabis and Dr. John Jumper were co-awarded the Nobel Prize in Chemistry "for
+            the development of AlphaFold, which predicts the structure of proteins with unprecedented accuracy." This
+            landmark recognition highlights the revolutionary impact of AI on fundamental scientific challenges and
+            represents one of the fastest transitions from scientific breakthrough to Nobel recognition in recent
+            history.</p>
+        </div>
 
-<p><a name="deepmind-nobel">[3]</a> <a href="https://deepmind.google/discover/blog/demis-hassabis-john-jumper-awarded-nobel-prize-in-chemistry/"
-  >Google DeepMind.
-  <em>Demis Hassabis and John Jumper awarded Nobel Prize in Chemistry.</em></a>
-  DeepMind Blog (2024). Retrieved April 21, 2025.
-</p>
+        <ul>
+          <li><strong>John Jumper:</strong> Lead researcher and first author of the AlphaFold2 paper</li>
+          <li><strong>Demis Hassabis:</strong> CEO and co-founder of DeepMind, with backgrounds in neuroscience and AI
+          </li>
+          <li><strong>Key team members:</strong> Richard Evans, Alexander Pritzel, Tim Green, Michael Figurnov, Olaf
+            Ronneberger, Kathryn Tunyasuvunakool, Russ Bates, and many others</li>
+        </ul>
+        <p>The team collaborated with structural biologists and validated their approach through rigorous testing before
+          the CASP14 competition. The project demonstrates the power of interdisciplinary research combining deep
+          learning expertise with domain knowledge in biology to solve complex scientific problems.</p>
+        </section>
 
-<h2>Team Members</h2>
+        <section id="alphafold-architecture">
+          <h2>AlphaFold2 Architecture: A Deep Dive</h2>
 
-          <div class="row mt-4">
-            <div class="col-md-6 mb-4">
-              <div class="card shadow">
-                <div class="text-center pt-4">
-                  <img
-                    src="https://via.placeholder.com/150"
-                    class="rounded-circle mb-3"
-                    alt="Rishi Mule"
-                    width="150"
-                    height="150"
-                  />
-                </div>
-                <div class="card-body text-center">
-                  <h5 class="card-title">Rishi Mule</h5>
-                  <p class="card-text">Team Member</p>
-                  <div class="social-links mt-3">
-                    <a
-                      href="mailto:rishi@example.com"
-                      class="mx-2"
-                      title="Email"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-envelope"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                        />
-                      </svg>
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/"
-                      class="mx-2"
-                      title="LinkedIn"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-linkedin"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
+          <p>The AlphaFold2 architecture represents a revolutionary approach to protein structure prediction, combining
+            evolutionary information with deep learning to achieve unprecedented accuracy. Unlike previous methods that
+            relied on fragment assembly and physics-based simulations, AlphaFold2 uses an end-to-end neural network
+            approach to directly predict 3D coordinates.</p>
+
+          <div class="image-container">
+            <figure>
+              <img src="assets/images/Alphafold_architecture.png"
+                alt="Overall architecture of AlphaFold2 showing the pipeline from input sequence to 3D structure">
+              <figcaption>Figure: Overall architecture of AlphaFold2 showing the complete pipeline from amino acid
+                sequence to 3D structure prediction.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Key Components</h3>
+
+          <h4>1. Multiple Sequence Alignment (MSA) Processing</h4>
+          <p>The first critical component of AlphaFold2 is the processing of evolutionary information through multiple
+            sequence alignments:</p>
+          <ul>
+            <li>Searches genetic databases to find evolutionarily related sequences</li>
+            <li>Aligns these sequences to capture conservation patterns</li>
+            <li>Generates a rich representation that captures which amino acids tend to co-evolve</li>
+            <li>This evolutionary information is crucial, as co-evolving residues often indicate spatial proximity in
+              the folded structure</li>
+          </ul>
+
+          <h4>2. Template Processing</h4>
+          <p>While not always necessary for accurate predictions, AlphaFold2 can use information from known protein
+            structures:</p>
+          <ul>
+            <li>Searches structural databases (PDB) for proteins with similar sequences</li>
+            <li>Extracts distance maps and structural features from these templates</li>
+            <li>Integrates this information with sequence-based predictions</li>
+            <li>This component helps guide the model, especially for proteins with known homologs</li>
+          </ul>
+
+          <h4>3. Evoformer</h4>
+          <p>The core of AlphaFold2's architecture is the Evoformer, a novel transformer-based neural network:</p>
+          <ul>
+            <li>Contains 48 identical blocks that iteratively refine representations</li>
+            <li>Processes both MSA and pairwise representations simultaneously</li>
+            <li>Uses specialized attention mechanisms to update information bidirectionally between these
+              representations</li>
+            <li>Key mechanisms include:
+              <ul>
+                <li>Row-wise gated self-attention: processes evolutionary information across sequence positions</li>
+                <li>Column-wise gated self-attention: processes evolutionary information across aligned sequences</li>
+                <li>Triangle multiplication: models higher-order interactions between residues</li>
+                <li>Transition layers: non-linear processing that integrates information</li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="image-container">
+            <figure>
+              <img src="assets/images/evoformer.png"
+                alt="Detailed structure of the Evoformer module showing attention mechanisms">
+              <figcaption>Figure 3: Detailed structure of the Evoformer module showing the various attention mechanisms
+                and information flow.</figcaption>
+            </figure>
+          </div>
+
+          <h4>4. Structure Module</h4>
+          <p>The final stage of AlphaFold2 is the Structure Module, which converts refined representations into 3D
+            coordinates:</p>
+          <ul>
+            <li>Consists of 8 blocks with shared weights</li>
+            <li>Takes the representations from the Evoformer and gradually builds the 3D structure</li>
+            <li>Uses Invariant Point Attention (IPA): a novel attention mechanism that respects the physics of 3D space
+            </li>
+            <li>Predicts backbone frames (rotations and translations)</li>
+            <li>Computes atom positions based on these frames</li>
+            <li>Predicts torsion angles (χ angles) to determine side chain conformations</li>
+          </ul>
+          <div class="image-container">
+            <figure>
+              <img src="assets/images/structure_module.png"
+                alt="Detailed structure of the Evoformer module showing attention mechanisms">
+              <figcaption>Figure: Detailed structure of the Structure module showing the various attention mechanisms
+                and information flow.</figcaption>
+            </figure>
+          </div>
+
+          <h4>5. Recycling and Confidence Estimation</h4>
+          <p>AlphaFold2 employs two additional techniques that significantly improve its performance:</p>
+          <ul>
+            <li><strong>Recycling:</strong> The entire prediction process is repeated multiple times (typically 3), with
+              each iteration using the output of the previous one as input. This allows the model to refine its
+              predictions based on emerging structural information.</li>
+            <li><strong>Confidence Estimation:</strong> AlphaFold2 provides two key metrics:
+              <ul>
+                <li>pLDDT (predicted Local Distance Difference Test): per-residue confidence scores from 0-100, with
+                  higher values indicating greater confidence</li>
+                <li>PAE (Predicted Aligned Error): estimates the expected position error between any two residues,
+                  providing insight into the reliability of domain arrangements in multi-domain proteins</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p>This sophisticated architecture enables AlphaFold2 to achieve remarkable accuracy, with many predictions
+            reaching experimental-level quality (GDT scores > 90). The integration of evolutionary information with
+            geometric reasoning through deep learning represents a fundamental breakthrough in protein structure
+            prediction.</p>
+        </section>
+
+        <section id="methods">
+          <h2>Methods</h2>
+          <p>Our approach utilizes ColabFold, an open-source adaptation of AlphaFold2 designed for accessibility. The
+            method employs a multi-stage neural network architecture consisting of:</p>
+          <ol>
+            <li>Multiple Sequence Alignment (MSA) generation using MMseqs2 to capture evolutionary information</li>
+            <li>Template structure identification from the PDB database</li>
+            <li>Neural network processing through the Evoformer (48 blocks) which refines sequence representations</li>
+            <li>Structure module (8 blocks) that predicts backbone coordinates and side chain orientations</li>
+            <li>Confidence assessment using pLDDT (predicted Local Distance Difference Test) scores</li>
+          </ol>
+          <p>We focused on lysozyme as our test protein, which showed very high confidence scores (pLDDT ~0.98) and
+            compared it with experimentally determined structures (PDB ID: 1LYZ).</p>
+        </section>
+
+        <section id="code">
+          <h2>Link to Code</h2>
+          <p>Our implementation and demonstration can be found in our GitHub repository: <a
+              href="https://github.com/rishimule/alphafold2-and-colabfold.git" target="_blank">AlphaFold2-Demo</a>. The
+            repository includes our Jupyter notebook with step-by-step execution of the ColabFold pipeline,
+            visualization code, and explanations of each component. We've also incorporated auxiliary scripts for
+            structural comparison between predicted models and experimentally determined structures.</p>
+        </section>
+
+        <section id="experiments">
+          <h2>Experiments</h2>
+          <p>We conducted structure prediction experiments on lysozyme (129 amino acids), a well-characterized enzyme
+            found in egg whites and human tears. Our implementation:</p>
+          <ol>
+            <li>Generated deep multiple sequence alignments (>2500 sequences)</li>
+            <div class="image-container">
+              <figure>
+                <img src="assets/images/MSA_coverage.png" alt="Graph showing MSA for lysozyme.">
+                <figcaption>Figure: Graph showing MSA coverage.</figcaption>
+              </figure>
+            </div>
+
+            <div class="image-container">
+              <figure>
+                <img src="assets/images/MSA.png" alt="Top 5 MSA received for lysozyme input.">
+                <figcaption>Figure: Top 5 MSA received for lysozyme input.</figcaption>
+              </figure>
+            </div>
+
+            <li>Identified suitable templates (1ior, 1ioq, 1iot, 1kxw)</li>
+            <div class="image-container">
+              <figure>
+                <img src="assets/images/templates.png" alt="Suitable templates for lysozyme.">
+                <figcaption>Figure: Suitable templates for lysozyme.</figcaption>
+              </figure>
+            </div>
+            <li>Ran predictions with 5 recycles across multiple AlphaFold models</li>
+            <div class="image-container">
+              <figure>
+                <img src="assets/images/recycles.png" alt="2 recycles due to early stopping.">
+                <figcaption>Figure: 2 recycles due to early stopping.</figcaption>
+              </figure>
+            </div>
+            <li>Achieved exceptional prediction quality with pLDDT scores averaging 0.984 and ptm scores of 0.913</li>
+            <div class="image-container">
+              <figure>
+                <img src="assets/images/lysozyme_predicted_structure.png"
+                  alt="Prediction for lysozyme with confidence coloring.">
+                <figcaption>Figure: Prediction for lysozyme with confidence coloring.</figcaption>
+              </figure>
+            </div>
+            <li>Visualized predictions using both rainbow coloring (by residue position) and confidence coloring</li>
+            <li>Compared our predicted structure with the experimental structure (1LYZ)</li>
+            <div class="image-container">
+              <figure>
+                <img src="assets/images/prediction_comparison.png"
+                  alt="Predicted vs Experimental Structure of lysozyme.">
+                <figcaption>Figure: Predicted vs Experimental Structure of lysozyme.</figcaption>
+              </figure>
+            </div>
+          </ol>
+
+          <div class="image-container">
+            <figure>
+              <img src="assets/prediction_results.png"
+                alt="AlphaFold2 prediction results showing high confidence (blue) throughout the lysozyme structure">
+              <figcaption>Figure 1: AlphaFold2 prediction of lysozyme structure showing high confidence (blue)
+                throughout the protein.</figcaption>
+            </figure>
+          </div>
+
+          <p>The high confidence score (blue coloring in pLDDT visualization) indicates a highly reliable prediction
+            across the entire protein structure, demonstrating AlphaFold2's remarkable ability to predict protein
+            structures with near-experimental accuracy.</p>
+        </section>
+
+        <section id="discussion">
+          <h2>Discussion</h2>
+          <p>Our exploration of AlphaFold2 and ColabFold highlights the transformative impact of deep learning on
+            structural biology. The ability to predict protein structures with such high accuracy in minutes rather than
+            months of laboratory work represents a paradigm shift in the field. Beyond technical achievements, several
+            questions emerge:</p>
+
+          <ol>
+            <li>How will this technology democratize structural biology research globally?</li>
+            <li>What impact will rapidly available protein structures have on drug discovery and personalized medicine?
+            </li>
+            <li>How might prediction of challenging structures (membrane proteins, large complexes, intrinsically
+              disordered regions) improve in future iterations?</li>
+          </ol>
+
+          <p>While AlphaFold2 represents a monumental achievement, challenges remain in predicting protein-small
+            molecule interactions, dynamic conformational changes, and structure prediction with limited sequence data.
+            Our work demonstrates the educational value of making these cutting-edge tools accessible to students and
+            researchers with limited computational resources.</p>
+        </section>
+
+        <h3>References</h3>
+
+        <p><a name="jumper-2021">[1]</a> <a href="https://www.nature.com/articles/s41586-021-03819-2">Jumper, J., Evans,
+            R., Pritzel, A. et al.
+            <em>Highly accurate protein structure prediction with AlphaFold.</em></a>
+          Nature 596, 583–589 (2021).
+        </p>
+
+        <p><a name="mirdita-2022">[2]</a> <a href="https://www.nature.com/articles/s41592-022-01488-1">Mirdita, M.,
+            Schütze, K., Moriwaki, Y. et al.
+            <em>ColabFold: making protein folding accessible to all.</em></a>
+          Nat Methods 19, 679–682 (2022).
+        </p>
+
+        <p><a name="deepmind-nobel">[3]</a> <a
+            href="https://deepmind.google/discover/blog/demis-hassabis-john-jumper-awarded-nobel-prize-in-chemistry/">Google
+            DeepMind.
+            <em>Demis Hassabis and John Jumper awarded Nobel Prize in Chemistry.</em></a>
+          DeepMind Blog (2024). Retrieved April 21, 2025.
+        </p>
+
+        <h2>Team Members</h2>
+
+        <div class="row mt-4">
+          <div class="col-md-6 mb-4">
+            <div class="card shadow">
+              <div class="text-center pt-4">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Rishi Mule" width="150"
+                  height="150" />
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Rishi Mule</h5>
+                <p class="card-text">Team Member</p>
+                <div class="social-links mt-3">
+                  <a href="mailto:rishi@example.com" class="mx-2" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                    </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/" class="mx-2" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-linkedin" viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="col-md-6 mb-4">
-              <div class="card shadow">
-                <div class="text-center pt-4">
-                  <img
-                    src="assets/photo_dhanshree.jpg"
-                    class="rounded-circle mb-3"
-                    alt="Dhanshree Baravkar"
-                    width="180"
-                    height="200"
-                  />
-                </div>
-                <div class="card-body text-center">
-                  <h5 class="card-title">Dhanshree Baravkar</h5>
-                  <p class="card-text">Team Member</p>
-                  <div class="social-links mt-3">
-                    <a
-                      href="mailto:baravkardhanshree@gmail.com"
-                      class="mx-2"
-                      title="Email"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-envelope"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                        />
-                      </svg>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/dhanshree-baravkar/"
-                      class="mx-2"
-                      title="LinkedIn"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-linkedin"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
+          <div class="col-md-6 mb-4">
+            <div class="card shadow">
+              <div class="text-center pt-4">
+                <img src="assets/photo_dhanshree.jpg" class="rounded-circle mb-3" alt="Dhanshree Baravkar" width="180"
+                  height="200" />
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Dhanshree Baravkar</h5>
+                <p class="card-text">Team Member</p>
+                <div class="social-links mt-3">
+                  <a href="mailto:baravkardhanshree@gmail.com" class="mx-2" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                    </svg>
+                  </a>
+                  <a href="https://www.linkedin.com/in/dhanshree-baravkar/" class="mx-2" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-linkedin" viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!--col-->
       </div>
-      <!--row -->
+      <!--col-->
     </div>
-    <!-- container -->
-
-<footer class="nd-pagefooter">
-  <div class="row">
-    <div class="col-6 col-md text-center">
-      <a href="https://cs7150.baulab.info/">About CS 7150</a>
-    </div>
+    <!--row -->
   </div>
-</footer>
+  <!-- container -->
+
+  <footer class="nd-pagefooter">
+    <div class="row">
+      <div class="col-6 col-md text-center">
+        <a href="https://cs7150.baulab.info/">About CS 7150</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 <script>
-$(document).on('click', '.clickselect', function(ev) {
-  var range = document.createRange();
-  range.selectNodeContents(this);
-  var sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
-});
-// Google analytics below.
-window.dataLayer = window.dataLayer || [];
+  $(document).on('click', '.clickselect', function (ev) {
+    var range = document.createRange();
+    range.selectNodeContents(this);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  });
+  // Google analytics below.
+  window.dataLayer = window.dataLayer || [];
 </script>
+
 </html>
