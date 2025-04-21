@@ -26,6 +26,32 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
 
+  <style>
+    /* Consistent image styling throughout the webpage */
+    .image-container {
+      text-align: center;
+      margin: 2rem auto;
+    }
+    
+    .image-container figure {
+      display: inline-block;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    
+    .image-container img {
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 100%;
+    }
+    
+    .image-container figcaption {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
 </head>
 
 <body class="nd-docs">
@@ -236,9 +262,9 @@
             relied on fragment assembly and physics-based simulations, AlphaFold2 uses an end-to-end neural network
             approach to directly predict 3D coordinates.</p>
 
-          <div class="image-container">
-            <figure>
-              <img src="assets/images/Alphafold_architecture.png"
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 80%;">
+              <img src="assets/images/Alphafold_architecture.png" class="img-fluid shadow" style="border-radius: 8px;"
                 alt="Overall architecture of AlphaFold2 showing the pipeline from input sequence to 3D structure">
               <figcaption>Figure: Overall architecture of AlphaFold2 showing the complete pipeline from amino acid
                 sequence to 3D structure prediction.</figcaption>
@@ -285,9 +311,9 @@
             </li>
           </ul>
 
-          <div class="image-container">
-            <figure>
-              <img src="assets/images/evoformer.png"
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 80%;">
+              <img src="assets/images/evoformer.png" class="img-fluid shadow" style="border-radius: 8px;"
                 alt="Detailed structure of the Evoformer module showing attention mechanisms">
               <figcaption>Figure 3: Detailed structure of the Evoformer module showing the various attention mechanisms
                 and information flow.</figcaption>
@@ -306,9 +332,9 @@
             <li>Computes atom positions based on these frames</li>
             <li>Predicts torsion angles (χ angles) to determine side chain conformations</li>
           </ul>
-          <div class="image-container">
-            <figure>
-              <img src="assets/images/structure_module.png"
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 80%;">
+              <img src="assets/images/structure_module.png" class="img-fluid shadow" style="border-radius: 8px;"
                 alt="Detailed structure of the Evoformer module showing attention mechanisms">
               <figcaption>Figure: Detailed structure of the Structure module showing the various attention mechanisms
                 and information flow.</figcaption>
@@ -397,47 +423,51 @@
             found in egg whites and human tears. Our implementation:</p>
           <ol>
             <li>Generated deep multiple sequence alignments (>2500 sequences)</li>
-            <div class="image-container">
-              <figure>
-                <img src="assets/images/MSA_coverage.png" alt="Graph showing MSA for lysozyme.">
+            <div class="image-container text-center">
+              <figure class="mx-auto" style="width: 80%;">
+                <img src="assets/images/MSA_coverage.png" class="img-fluid shadow" style="border-radius: 8px;"
+                  alt="Graph showing MSA for lysozyme.">
                 <figcaption>Figure: Graph showing MSA coverage.</figcaption>
               </figure>
             </div>
 
-            <div class="image-container">
-              <figure>
-                <img src="assets/images/MSA.png" alt="Top 5 MSA received for lysozyme input.">
+            <div class="image-container text-center">
+              <figure class="mx-auto" style="width: 80%;">
+                <img src="assets/images/MSA.png" class="img-fluid shadow" style="border-radius: 8px;"
+                  alt="Top 5 MSA received for lysozyme input.">
                 <figcaption>Figure: Top 5 MSA received for lysozyme input.</figcaption>
               </figure>
             </div>
 
             <li>Identified suitable templates (1ior, 1ioq, 1iot, 1kxw)</li>
-            <div class="image-container">
-              <figure>
-                <img src="assets/images/templates.png" alt="Suitable templates for lysozyme.">
+            <div class="image-container text-center">
+              <figure class="mx-auto" style="width: 80%;">
+                <img src="assets/images/templates.png" class="img-fluid shadow" style="border-radius: 8px;"
+                  alt="Suitable templates for lysozyme.">
                 <figcaption>Figure: Suitable templates for lysozyme.</figcaption>
               </figure>
             </div>
             <li>Ran predictions with 5 recycles across multiple AlphaFold models</li>
-            <div class="image-container">
-              <figure>
-                <img src="assets/images/recycles.png" alt="2 recycles due to early stopping.">
+            <div class="image-container text-center">
+              <figure class="mx-auto" style="width: 80%;">
+                <img src="assets/images/recycles.png" class="img-fluid shadow" style="border-radius: 8px;"
+                  alt="2 recycles due to early stopping.">
                 <figcaption>Figure: 2 recycles due to early stopping.</figcaption>
               </figure>
             </div>
             <li>Achieved exceptional prediction quality with pLDDT scores averaging 0.984 and ptm scores of 0.913</li>
-            <div class="image-container">
-              <figure>
-                <img src="assets/images/lysozyme_predicted_structure.png"
+            <div class="image-container text-center">
+              <figure class="mx-auto" style="width: 80%;">
+                <img src="assets/images/lysozyme_predicted_structure.png" class="img-fluid shadow" style="border-radius: 8px;"
                   alt="Prediction for lysozyme with confidence coloring.">
                 <figcaption>Figure: Prediction for lysozyme with confidence coloring.</figcaption>
               </figure>
             </div>
             <li>Visualized predictions using both rainbow coloring (by residue position) and confidence coloring</li>
             <li>Compared our predicted structure with the experimental structure (1LYZ)</li>
-            <div class="image-container">
-              <figure>
-                <img src="assets/images/prediction_comparison.png"
+            <div class="image-container text-center">
+              <figure class="mx-auto" style="width: 80%;">
+                <img src="assets/images/prediction_comparison.png" class="img-fluid shadow" style="border-radius: 8px;"
                   alt="Predicted vs Experimental Structure of lysozyme.">
                 <figcaption>Figure: Predicted vs Experimental Structure of lysozyme.</figcaption>
               </figure>
@@ -503,7 +533,7 @@
                       viewBox="0 0 16 16"
                     >
                       <path
-                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
                       />
                     </svg>
                   </a>
