@@ -339,8 +339,24 @@
 
         <section id="methods">
           <h2>Methods</h2>
-          <p>Our approach utilizes ColabFold, an open-source adaptation of AlphaFold2 designed for accessibility. The
-            method employs a multi-stage neural network architecture consisting of:</p>
+          <p>Our approach utilizes ColabFold, an open-source adaptation of AlphaFold2 designed for accessibility and
+            efficiency. Developed by Mirdita et al., ColabFold significantly reduces the computational barriers to
+            protein structure prediction while maintaining AlphaFold2's accuracy. Key advantages of ColabFold include:
+          </p>
+
+          <ul>
+            <li>Accelerated MSA generation using MMseqs2, reducing search times from hours to minutes</li>
+            <li>Optimized implementation for Google Colab's free GPU resources</li>
+            <li>Streamlined preprocessing and reduced memory requirements</li>
+            <li>Support for both protein monomer and complex predictions</li>
+            <li>Interactive visualization tools for structural analysis</li>
+            <li>Batch processing capabilities for multiple sequences</li>
+          </ul>
+
+          <p>ColabFold preserves the core AlphaFold2 architecture while making it accessible to researchers without
+            specialized computing infrastructure. Our implementation follows the standard ColabFold pipeline, which
+            employs a multi-stage neural network architecture consisting of:</p>
+
           <ol>
             <li>Multiple Sequence Alignment (MSA) generation using MMseqs2 to capture evolutionary information</li>
             <li>Template structure identification from the PDB database</li>
@@ -348,14 +364,28 @@
             <li>Structure module (8 blocks) that predicts backbone coordinates and side chain orientations</li>
             <li>Confidence assessment using pLDDT (predicted Local Distance Difference Test) scores</li>
           </ol>
-          <p>We focused on lysozyme as our test protein, which showed very high confidence scores (pLDDT ~0.98) and
-            compared it with experimentally determined structures (PDB ID: 1LYZ).</p>
-        </section>
 
+          <p>For our experiments, we configured ColabFold with the following parameters:</p>
+          <ul>
+            <li>Model type: "auto" (automatically selects appropriate model based on input)</li>
+            <li>MSA depth: 512 sequences</li>
+            <li>Extra MSA depth: 1024 sequences</li>
+            <li>Number of recycles: 6</li>
+            <li>Early stopping tolerance: 0.5 RMSD</li>
+            <li>Use of templates: Enabled with PDB70 database</li>
+          </ul>
+
+          <p>We focused on lysozyme as our test protein, which showed very high confidence scores (pLDDT ~0.98) and
+            compared it with experimentally determined structures (PDB ID: 1LYZ). The entire prediction process, from
+            sequence input to final structure, took approximately 1-2 minutes on a T4 GPU, highlighting the efficiency
+            of the ColabFold implementation.</p>
+        </section>
+        
         <section id="code">
           <h2>Link to Code</h2>
           <p>Our implementation and demonstration can be found in our GitHub repository: <a
-              href="https://github.com/rishimule/alphafold2-and-colabfold/tree/main/Demo_Presentation" target="_blank">AlphaFold2-Demo</a>. The
+              href="https://github.com/rishimule/alphafold2-and-colabfold/tree/main/Demo_Presentation"
+              target="_blank">AlphaFold2-Demo</a>. The
             repository includes our Jupyter notebook with step-by-step execution of the ColabFold pipeline,
             visualization code, and explanations of each component. We've also incorporated auxiliary scripts for
             structural comparison between predicted models and experimentally determined structures.</p>
