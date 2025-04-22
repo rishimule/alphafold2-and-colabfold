@@ -466,26 +466,30 @@
         <section id="code">
           <h2>Link to Code</h2>
           <p>Our implementation and demonstration can be found in our GitHub repository: <a
-              href="https://github.com/rishimule/alphafold2-and-colabfold/tree/main/Demo_Presentation"
-              target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16" style="margin-right: 4px;">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              href="https://github.com/rishimule/alphafold2-and-colabfold/tree/main/Demo_Presentation" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+                viewBox="0 0 16 16" style="margin-right: 4px;">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
               </svg>AlphaFold2-Demo</a>. The
             repository includes our Jupyter notebook with step-by-step execution of the ColabFold pipeline,
             visualization code, and explanations of each component. We've also incorporated auxiliary scripts for
             structural comparison between predicted models and experimentally determined structures.</p>
-            
+
           <div class="text-center my-4">
-            <a href="https://colab.research.google.com/drive/15_V8sGWb5xXgD9Gx02L9D9GIOHIN4rTR?usp=sharing" 
-               target="_blank" class="btn btn-primary mr-3">
-              <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="margin-right: 5px;">
+            <a href="https://colab.research.google.com/drive/15_V8sGWb5xXgD9Gx02L9D9GIOHIN4rTR?usp=sharing"
+              target="_blank" class="btn btn-primary mr-3">
+              <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"
+                style="margin-right: 5px;">
             </a>
-            <p class="text-muted mt-2"><small>Click the button above to open our demo notebook directly in Google Colab where you can run the protein structure prediction pipeline yourself.</small></p>
+            <p class="text-muted mt-2"><small>Click the button above to open our demo notebook directly in Google Colab
+                where you can run the protein structure prediction pipeline yourself.</small></p>
           </div>
         </section>
 
         <section id="experiments">
           <h2>Experiments</h2>
+          <h3>Experiment 1: Lysozyme Prediction (Optimal Conditions)</h3>
           <p>We conducted structure prediction experiments on lysozyme (129 amino acids), a well-characterized enzyme
             found in egg whites and human tears. Our implementation:</p>
           <ol>
@@ -544,20 +548,87 @@
           <p>The high confidence score (blue coloring in pLDDT visualization) indicates a highly reliable prediction
             across the entire protein structure, demonstrating AlphaFold2's remarkable ability to predict protein
             structures with near-experimental accuracy.</p>
+
+
+          <h3>Experiment 2: Exploring the Limitations of AlphaFold2</h3>
+          <p>To understand the boundaries of AlphaFold2's capabilities, we conducted two challenging prediction
+            scenarios:</p>
+          <h4>Scenario A: Limited Evolutionary Information (Lysozyme)</h4>
+          <p>We tested how the prediction quality changes for a significantly larger protein fragment( ~1000 amino
+            acids) under
+            challenging conditions when evolutionary information is restricted:</p>
+          <ul>
+            <li>Reduced MSA depth from 512 to just 2 sequences</li>
+            <li>Maintained all other parameters</li>
+            <li>No structural templates available</li>
+            <li>Observed significant degradation in prediction quality:
+              <ul>
+                <li>pLDDT scores dropped from 0.984 to 0.433 at best</li>
+                <li>Required full 6 recycles (no early stopping)</li>
+                <li>High predicted alignment errors (predominantly red PAE matrix)</li>
+                <li>Unstable structures across recycles with large RMSD variations</li>
+                <li>Different models produced substantially different predicted structures</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="image-container text-center">
+            <figure class="mx-auto" style="width: 80%;">
+              <img src="assets/images/lp_m12.png" class="img-fluid shadow" style="border-radius: 8px;"
+                alt="Predictions from model 1 and 2.">
+              <figcaption>Figure: Predictions from model 1 and 2.</figcaption>
+            </figure>
+          </div><div class="image-container text-center">
+            <figure class="mx-auto" style="width: 80%;">
+              <img src="assets/images/lp_m34.png" class="img-fluid shadow" style="border-radius: 8px;"
+                alt="Predictions from model 3 and 4.">
+              <figcaption>Figure: Predictions from model 3 and 4.</figcaption>
+            </figure>
+          </div><div class="image-container text-center">
+            <figure class="mx-auto" style="width: 80%;">
+              <img src="assets/images/lp_m5.png" class="img-fluid shadow" style="border-radius: 8px;"
+                alt="Predictions from model 5.">
+              <figcaption>Figure: Predictions from model 5 and best pLDDT of 0.433.</figcaption>
+            </figure>
+          </div>
+
+        </div><div class="image-container text-center">
+          <figure class="mx-auto" style="width: 80%;">
+            <img src="assets/images/long_protein_results.png" class="img-fluid shadow" style="border-radius: 8px;"
+              alt="rediction result for long protein fragment with limited information.">
+            <figcaption>Figure: Prediction result for long protein fragment with limited information.</figcaption>
+          </figure>
+        </div>
+          <h3>Key Insights from Experiments</h3>
+          <p>These experiments collectively demonstrate that AlphaFold2's prediction quality depends on multiple
+            interdependent factors:</p>
+          <ul>
+            <li>Evolutionary information (MSA depth) plays a crucial role in achieving high-confidence predictions</li>
+            <li>Template availability provides important structural guidance</li>
+            <li>Prediction quality degrades substantially under challenging conditions with limited information</li>
+            <li>The combination of protein complexity and limited evolutionary information presents the greatest
+              challenge</li>
+            <li>Under optimal conditions, predictions can achieve near-experimental accuracy</li>
+          </ul>
+
         </section>
 
         <section id="conclusion">
           <h3>Conclusion:</h3>
-          <p>Our hands-on exploration of AlphaFold2 through ColabFold has demonstrated both the power and limitations of
-            this revolutionary technology. While we achieved remarkable accuracy with lysozyme prediction (pLDDT scores
-            of 0.984), our experiment with reduced MSA depth revealed how critical evolutionary information is to the
-            system's performance. When we limited MSA from 512 to just 2 sequences, prediction confidence dropped
-            dramatically to 0.433 at best, with visibly less stable structures across multiple models.</p>
-          <p>This finding highlights a key insight: while AlphaFold2 represents a computational breakthrough worthy of
-            its 2024 Nobel Prize recognition, its success remains fundamentally tied to the wealth of evolutionary data
-            accumulated through decades of experimental work. The technology doesn't replace traditional approaches as
-            much as it builds upon and accelerates them, creating a powerful symbiosis between experimental and
-            computational methods.</p>
+          <p>Our hands-on exploration of AlphaFold2 through ColabFold has revealed both the impressive capabilities and
+            important limitations of this revolutionary technology. While we achieved remarkable accuracy with lysozyme
+            prediction (pLDDT scores of 0.984), our experiments with challenging scenarios demonstrated clear
+            performance boundaries. When working with a protein fragment under constrained conditions (minimal MSA depth
+            and no templates), prediction confidence dropped significantly, with pLDDT scores averaging only around
+            30-50% and high predicted alignment errors as visualized in the red confidence maps.</p>
+
+          <p>These findings highlight a crucial insight about the interdependent factors affecting prediction quality:
+            the absence of sufficient evolutionary information (limited MSA) combined with lack of structural templates
+            dramatically impacts performance, especially for challenging proteins. Our experimental comparison
+            demonstrates how AlphaFold2's success depends on the integration of multiple data sources rather than any
+            single algorithmic innovation. This Nobel Prize-worthy breakthrough represents a sophisticated synthesis of
+            evolutionary information, structural knowledge, and deep learning rather than a complete departure from
+            traditional approaches.</p>
+
         </section>
         <section id="references">
           <h3>References</h3>
