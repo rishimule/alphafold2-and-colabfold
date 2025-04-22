@@ -451,17 +451,20 @@
           <p>For our experiments, we configured ColabFold with the following parameters:</p>
           <ul>
             <li>Model type: "auto" (automatically selects appropriate model based on input)</li>
-            <li>MSA depth: 512 sequences</li>
-            <li>Extra MSA depth: 1024 sequences</li>
+            <li>MSA depth: 512 sequences for optimal runs, reduced to 2 sequences for limitation testing</li>
+            <li>Extra MSA depth: 1024 sequences for optimal runs, reduced to 0 for limitation testing</li>
             <li>Number of recycles: 6</li>
             <li>Early stopping tolerance: 0.5 RMSD</li>
-            <li>Use of templates: Enabled with PDB70 database</li>
+            <li>Use of templates: Enabled with PDB70 database for optimal runs, disabled for some limitation tests</li>
           </ul>
-
-          <p>We focused on lysozyme as our test protein, which showed very high confidence scores (pLDDT ~0.98) and
-            compared it with experimentally determined structures (PDB ID: 1LYZ). The entire prediction process, from
-            sequence input to final structure, took approximately 1-2 minutes on a T4 GPU, highlighting the efficiency
-            of the ColabFold implementation.</p>
+          <p>Our experiments covered two distinct scenarios. First, we predicted the structure of lysozyme (129 amino
+            acids), achieving very high confidence scores (pLDDT ~0.98) that compared favorably with experimentally
+            determined structures (PDB ID: 1LYZ). The entire prediction process took approximately 1-2 minutes on a T4
+            GPU, with early stopping triggering after just 2 recycles due to structural convergence. Second, we
+            conducted limit-testing experiments on a larger fragment (~1000 amino acids) with minimal MSA and no
+            templates, which resulted in dramatically lower confidence predictions (pLDDT scores averaging 30-50%),
+            demonstrating the critical dependence of AlphaFold2 on sufficient evolutionary and template information,
+            especially for larger proteins.</p>
         </section>
 
         <section id="code">
